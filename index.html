@@ -1,9 +1,12 @@
+# Ms Thao LMS — Modern Landing Page (Google Sans Style)
+
+```html
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Ms Thao English Center LMS</title>
 
@@ -11,32 +14,52 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
-    rel="stylesheet"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background: #f5f7f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background:
+        linear-gradient(
+          180deg,
+          #f7f8f3 0%,
+          #eef6ef 100%
+        );
+      color: #0b2d1b;
+      line-height: 120%;
     }
 
-    h1,
-    h2,
-    h3,
-    .hero-title {
-      font-family: 'Montserrat', sans-serif;
+    html {
+      scroll-behavior: smooth;
     }
 
-    :root {
-      --primary: #0b5d1e;
-      --primary-light: #178c35;
-      --primary-soft: #e7f5eb;
+    .hero-gradient {
+      background:
+        radial-gradient(circle at top left,
+          rgba(27, 135, 62, 0.18),
+          transparent 35%),
+        radial-gradient(circle at bottom right,
+          rgba(43, 183, 96, 0.16),
+          transparent 35%),
+        linear-gradient(180deg,
+          #f7f8f3,
+          #eef6ef);
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.8);
     }
 
     .card-hover {
@@ -44,44 +67,55 @@
     }
 
     .card-hover:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.08);
     }
 
-    .glass {
-      backdrop-filter: blur(12px);
-      background: rgba(255,255,255,0.75);
+    .btn-primary {
+      background:
+        linear-gradient(
+          135deg,
+          #0b5d1e,
+          #178c35
+        );
+    }
+
+    .btn-primary:hover {
+      opacity: 0.92;
+    }
+
+    .soft-shadow {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     }
 
   </style>
 
 </head>
 
-<body class="min-h-screen">
+<body>
 
   <!-- HEADER -->
-  <header class="bg-white shadow-sm border-b border-gray-100">
+  <header class="sticky top-0 z-50 glass border-b border-white/40">
 
-    <div class="max-w-7xl mx-auto px-6 py-5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+      <div class="flex items-center justify-between py-5">
 
-        <!-- LEFT -->
-        <div class="flex items-center gap-5">
+        <!-- LOGO -->
+        <div class="flex items-center gap-4">
 
           <img
             src="logo.png"
-            alt="Ms Thao English Center"
-            class="w-28 object-contain"
+            class="w-16 h-16 object-contain"
           >
 
           <div>
 
-            <h1 class="text-3xl lg:text-5xl font-extrabold text-[#0b5d1e] tracking-tight">
+            <h1 class="text-2xl font-extrabold tracking-tight text-[#0b5d1e]">
               Ms Thao English Center
             </h1>
 
-            <p class="text-gray-500 mt-2 text-lg">
+            <p class="text-sm text-gray-500 mt-1">
               English Learning Platform
             </p>
 
@@ -89,25 +123,37 @@
 
         </div>
 
-        <!-- RIGHT -->
-        <div class="text-sm lg:text-right space-y-3 text-gray-600">
+        <!-- MENU -->
+        <div class="hidden lg:flex items-center gap-10 text-[15px] font-semibold text-gray-700">
 
-          <div>
-            ☎ Hotline:
-            <span class="font-bold text-[#0b5d1e]">
-              039.664.1532
-            </span>
-          </div>
+          <a href="#" class="hover:text-[#0b5d1e] transition">
+            Trang chủ
+          </a>
 
-          <div>
-            📍 CS1: Số 24B9, Khu dân cư 918,
-            Tổ 2, Phường Long Biên, Hà Nội
-          </div>
+          <a href="#tests" class="hover:text-[#0b5d1e] transition">
+            Bài kiểm tra
+          </a>
 
-          <div>
-            📍 CS2: Số 1, Ngõ 70,
-            Phố Mai Phúc, Phường Phúc Lợi, Hà Nội
-          </div>
+          <a href="#classes" class="hover:text-[#0b5d1e] transition">
+            Lớp học
+          </a>
+
+          <a href="#contact" class="hover:text-[#0b5d1e] transition">
+            Liên hệ
+          </a>
+
+        </div>
+
+        <!-- BUTTON -->
+        <div class="flex items-center gap-4">
+
+          <button class="hidden md:block text-[15px] font-semibold text-gray-700">
+            Giáo viên
+          </button>
+
+          <button class="btn-primary text-white px-6 py-4 rounded-2xl font-bold text-[15px] shadow-lg">
+            Bắt đầu học
+          </button>
 
         </div>
 
@@ -118,43 +164,113 @@
   </header>
 
   <!-- HERO -->
-  <section class="max-w-7xl mx-auto px-6 py-12">
+  <section class="hero-gradient overflow-hidden">
 
-    <div
-      class="rounded-[40px] overflow-hidden shadow-2xl"
-      style="
-        background:
-        linear-gradient(
-          135deg,
-          #0b5d1e,
-          #178c35
-        );
-      "
-    >
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-20 lg:py-28">
 
-      <div class="p-10 lg:p-16 text-white">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
 
-        <div class="max-w-4xl">
+        <!-- LEFT -->
+        <div>
 
-          <div class="inline-block bg-white/20 px-5 py-2 rounded-full mb-7 text-sm font-semibold">
+          <div class="inline-flex items-center gap-3 border border-green-200 bg-white/70 px-5 py-3 rounded-full text-[14px] font-semibold text-[#0b5d1e] mb-10">
 
-            ✨ English Learning Platform
+            ✨ Nền tảng học tiếng Anh hiện đại cho trẻ em
 
           </div>
 
-          <h2 class="hero-title text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-7">
-
-            Chào mừng đến với
+          <h2 class="text-[58px] lg:text-[86px] font-extrabold tracking-[-3px] leading-[96%] text-[#052b17]">
+            Nơi các con
             <br>
-            Ms Thao LMS 👋
-
+            học tiếng Anh
+            <br>
+            thật vui 🎉
           </h2>
 
-          <p class="text-xl text-green-100 leading-9 max-w-3xl">
+          <p class="text-[22px] leading-[150%] text-gray-600 mt-10 max-w-2xl">
 
-            Hệ thống luyện tập và kiểm tra trực tuyến hiện đại dành cho học sinh trung tâm tiếng Anh.
+            Hệ thống luyện tập và kiểm tra trực tuyến dành riêng cho học sinh tại Ms Thao English Center.
+            Học tập hiện đại, trực quan và thân thiện với trẻ em.
 
           </p>
+
+          <!-- BUTTONS -->
+          <div class="flex flex-wrap gap-5 mt-12">
+
+            <button class="btn-primary text-white px-8 py-5 rounded-2xl font-bold text-[17px] shadow-xl">
+              Bắt đầu làm bài
+            </button>
+
+            <button class="bg-white border border-gray-200 px-8 py-5 rounded-2xl font-bold text-[17px] text-gray-700 shadow-sm hover:shadow-md transition">
+              Xem lớp học
+            </button>
+
+          </div>
+
+          <!-- STATS -->
+          <div class="flex items-center gap-8 mt-14">
+
+            <div class="flex -space-x-3">
+
+              <div class="w-12 h-12 rounded-full bg-[#0b5d1e] border-4 border-white"></div>
+              <div class="w-12 h-12 rounded-full bg-[#178c35] border-4 border-white"></div>
+              <div class="w-12 h-12 rounded-full bg-[#2bb760] border-4 border-white"></div>
+              <div class="w-12 h-12 rounded-full bg-[#6ee7a0] border-4 border-white"></div>
+
+            </div>
+
+            <div>
+
+              <div class="text-[#e6b400] text-xl mb-2">
+                ★★★★★
+              </div>
+
+              <div class="text-[16px] text-gray-600 font-medium leading-[150%]">
+                Hơn 2,400+ học sinh đang học tại trung tâm
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="relative">
+
+          <div class="rounded-[40px] overflow-hidden soft-shadow bg-white p-3">
+
+            <img
+              src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop"
+              class="w-full h-[620px] object-cover rounded-[32px]"
+            >
+
+          </div>
+
+          <!-- FLOATING CARD -->
+          <div class="absolute -bottom-8 -left-8 bg-white rounded-[30px] px-8 py-6 shadow-2xl border border-gray-100">
+
+            <div class="flex items-center gap-5">
+
+              <div class="w-16 h-16 rounded-2xl bg-[#eef6ef] flex items-center justify-center text-3xl">
+                🏆
+              </div>
+
+              <div>
+
+                <div class="text-sm text-gray-500 mb-2">
+                  Tuần này
+                </div>
+
+                <div class="text-3xl font-extrabold text-[#0b5d1e]">
+                  +340 bài làm
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -164,292 +280,203 @@
 
   </section>
 
-  <!-- SEARCH -->
-  <section class="max-w-7xl mx-auto px-6 mb-10">
+  <!-- TEST SECTION -->
+  <section id="tests" class="py-24">
 
-    <div class="glass rounded-[30px] shadow-md p-5 border border-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
 
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="🔍 Tìm bài học..."
-        class="
-          w-full
-          border
-          border-gray-200
-          rounded-2xl
-          px-6
-          py-5
-          outline-none
-          text-lg
-          focus:ring-2
-          focus:ring-green-600
-        "
-      />
+      <!-- TITLE -->
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10 mb-16">
 
-    </div>
+        <div>
 
-  </section>
-
-  <!-- FILTER -->
-  <section class="max-w-7xl mx-auto px-6 mb-12">
-
-    <div class="flex flex-wrap gap-4">
-
-      <button
-        class="filter-btn bg-[#0b5d1e] text-white px-6 py-3 rounded-2xl font-semibold"
-        data-class="ALL"
-      >
-        Tất cả
-      </button>
-
-      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="WINTER">
-        WINTER
-      </button>
-
-      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="JOLLY">
-        JOLLY
-      </button>
-
-      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="WINDY">
-        WINDY
-      </button>
-
-      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="AUTUMN">
-        AUTUMN
-      </button>
-
-      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="SPRING">
-        SPRING
-      </button>
-
-      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="HAPPY">
-        HAPPY
-      </button>
-
-      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="LỚP 7">
-        LỚP 7
-      </button>
-
-      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="LỚP 8">
-        LỚP 8
-      </button>
-
-      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="CLC THI 6">
-        CLC THI 6
-      </button>
-
-    </div>
-
-  </section>
-
-  <!-- LESSON GRID -->
-  <section class="max-w-7xl mx-auto px-6 pb-20">
-
-    <div
-      id="lessonGrid"
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10"
-    >
-
-      <!-- CARD -->
-      <div
-        class="lesson-card bg-white rounded-[32px] overflow-hidden shadow-md card-hover"
-        data-class="LỚP 8"
-      >
-
-        <img
-          src="https://picsum.photos/700/500?1"
-          class="w-full h-60 object-cover"
-        >
-
-        <div class="p-8">
-
-          <div class="flex items-center justify-between mb-5">
-
-            <span
-              class="
-                bg-green-100
-                text-green-700
-                px-4
-                py-2
-                rounded-full
-                text-sm
-                font-bold
-              "
-            >
-              LỚP 8
-            </span>
-
-            <span class="text-gray-400 text-sm">
-              📝 Quiz
-            </span>
-
+          <div class="text-[#178c35] font-bold text-[15px] mb-5 uppercase tracking-[2px]">
+            Online Quiz System
           </div>
 
-          <h3 class="text-3xl font-extrabold text-gray-800 mb-4">
-            U12 Multiple Choice
-          </h3>
+          <h2 class="text-[42px] lg:text-[58px] font-extrabold tracking-[-2px] leading-[105%] text-[#052b17] max-w-3xl">
+            Kho bài luyện tập dành cho học sinh
+          </h2>
 
-          <p class="text-gray-500 leading-8 mb-7">
+        </div>
 
-            Bài luyện tập trắc nghiệm Unit 12 dành cho học sinh lớp 8.
+        <!-- SEARCH -->
+        <div class="glass rounded-3xl px-6 py-5 shadow-md min-w-[340px]">
 
-          </p>
-
-          <a
-            href="#"
-            class="
-              block
-              text-center
-              py-4
-              rounded-2xl
-              font-bold
-              text-white
-              text-lg
-            "
-            style="
-              background:
-              linear-gradient(
-                135deg,
-                #0b5d1e,
-                #178c35
-              );
-            "
+          <input
+            type="text"
+            placeholder="🔍 Tìm bài học hoặc bài test..."
+            class="w-full bg-transparent outline-none text-[16px] text-gray-700"
           >
-            Vào bài học
-          </a>
 
         </div>
 
       </div>
 
-      <!-- CARD -->
-      <div
-        class="lesson-card bg-white rounded-[32px] overflow-hidden shadow-md card-hover"
-        data-class="WINTER"
-      >
+      <!-- FILTER -->
+      <div id="classes" class="flex flex-wrap gap-4 mb-14">
 
-        <img
-          src="https://picsum.photos/700/500?2"
-          class="w-full h-60 object-cover"
-        >
+        <button class="btn-primary text-white px-6 py-4 rounded-2xl font-bold text-[15px]">
+          Tất cả
+        </button>
 
-        <div class="p-8">
+        <button class="bg-white px-6 py-4 rounded-2xl font-semibold shadow-sm hover:shadow-md transition">
+          WINTER
+        </button>
 
-          <div class="flex items-center justify-between mb-5">
+        <button class="bg-white px-6 py-4 rounded-2xl font-semibold shadow-sm hover:shadow-md transition">
+          JOLLY
+        </button>
 
-            <span
-              class="
-                bg-blue-100
-                text-blue-700
-                px-4
-                py-2
-                rounded-full
-                text-sm
-                font-bold
-              "
-            >
-              WINTER
-            </span>
+        <button class="bg-white px-6 py-4 rounded-2xl font-semibold shadow-sm hover:shadow-md transition">
+          WINDY
+        </button>
 
-            <span class="text-gray-400 text-sm">
-              🎧 Listening
-            </span>
+        <button class="bg-white px-6 py-4 rounded-2xl font-semibold shadow-sm hover:shadow-md transition">
+          AUTUMN
+        </button>
 
-          </div>
+        <button class="bg-white px-6 py-4 rounded-2xl font-semibold shadow-sm hover:shadow-md transition">
+          SPRING
+        </button>
 
-          <h3 class="text-3xl font-extrabold text-gray-800 mb-4">
-            Listening Test 01
-          </h3>
+        <button class="bg-white px-6 py-4 rounded-2xl font-semibold shadow-sm hover:shadow-md transition">
+          HAPPY
+        </button>
 
-          <p class="text-gray-500 leading-8 mb-7">
+        <button class="bg-white px-6 py-4 rounded-2xl font-semibold shadow-sm hover:shadow-md transition">
+          LỚP 7
+        </button>
 
-            Kiểm tra kỹ năng nghe với audio tương tác.
-
-          </p>
-
-          <a
-            href="#"
-            class="
-              block
-              text-center
-              py-4
-              rounded-2xl
-              font-bold
-              text-white
-              text-lg
-              bg-blue-600
-              hover:bg-blue-700
-            "
-          >
-            Vào bài học
-          </a>
-
-        </div>
+        <button class="bg-white px-6 py-4 rounded-2xl font-semibold shadow-sm hover:shadow-md transition">
+          LỚP 8
+        </button>
 
       </div>
 
-      <!-- CARD -->
-      <div
-        class="lesson-card bg-white rounded-[32px] overflow-hidden shadow-md card-hover"
-        data-class="CLC THI 6"
-      >
+      <!-- GRID -->
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
 
-        <img
-          src="https://picsum.photos/700/500?3"
-          class="w-full h-60 object-cover"
-        >
+        <!-- CARD -->
+        <div class="bg-white rounded-[36px] overflow-hidden soft-shadow card-hover">
 
-        <div class="p-8">
+          <img
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-72 object-cover"
+          >
 
-          <div class="flex items-center justify-between mb-5">
+          <div class="p-8">
 
-            <span
-              class="
-                bg-purple-100
-                text-purple-700
-                px-4
-                py-2
-                rounded-full
-                text-sm
-                font-bold
-              "
+            <div class="flex items-center justify-between mb-6">
+
+              <div class="bg-[#eef6ef] text-[#0b5d1e] px-4 py-3 rounded-full text-sm font-bold">
+                LỚP 8
+              </div>
+
+              <div class="text-sm text-gray-400 font-semibold">
+                📝 Quiz
+              </div>
+
+            </div>
+
+            <h3 class="text-[34px] leading-[110%] font-extrabold tracking-[-1px] text-[#052b17] mb-5">
+              U12 Multiple Choice
+            </h3>
+
+            <p class="text-[17px] leading-[160%] text-gray-600 mb-8">
+              Bài luyện tập trắc nghiệm Unit 12 dành cho học sinh lớp 8.
+            </p>
+
+            <a
+              href="#"
+              class="btn-primary block text-center py-5 rounded-2xl text-white font-bold text-[16px] shadow-lg"
             >
-              CLC THI 6
-            </span>
-
-            <span class="text-gray-400 text-sm">
-              📖 Grammar
-            </span>
+              Vào bài học
+            </a>
 
           </div>
 
-          <h3 class="text-3xl font-extrabold text-gray-800 mb-4">
-            Grammar Challenge
-          </h3>
+        </div>
 
-          <p class="text-gray-500 leading-8 mb-7">
+        <!-- CARD -->
+        <div class="bg-white rounded-[36px] overflow-hidden soft-shadow card-hover">
 
-            Ôn tập ngữ pháp tổng hợp và luyện đề nâng cao.
-
-          </p>
-
-          <a
-            href="#"
-            class="
-              block
-              text-center
-              py-4
-              rounded-2xl
-              font-bold
-              text-white
-              text-lg
-              bg-purple-600
-              hover:bg-purple-700
-            "
+          <img
+            src="https://images.unsplash.com/photo-1588072432836-e10032774350?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-72 object-cover"
           >
-            Vào bài học
-          </a>
+
+          <div class="p-8">
+
+            <div class="flex items-center justify-between mb-6">
+
+              <div class="bg-blue-100 text-blue-700 px-4 py-3 rounded-full text-sm font-bold">
+                WINTER
+              </div>
+
+              <div class="text-sm text-gray-400 font-semibold">
+                🎧 Listening
+              </div>
+
+            </div>
+
+            <h3 class="text-[34px] leading-[110%] font-extrabold tracking-[-1px] text-[#052b17] mb-5">
+              Listening Test 01
+            </h3>
+
+            <p class="text-[17px] leading-[160%] text-gray-600 mb-8">
+              Kiểm tra kỹ năng nghe với audio và câu hỏi tương tác.
+            </p>
+
+            <a
+              href="#"
+              class="block text-center py-5 rounded-2xl text-white font-bold text-[16px] shadow-lg bg-blue-600 hover:bg-blue-700 transition"
+            >
+              Vào bài học
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="bg-white rounded-[36px] overflow-hidden soft-shadow card-hover">
+
+          <img
+            src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop"
+            class="w-full h-72 object-cover"
+          >
+
+          <div class="p-8">
+
+            <div class="flex items-center justify-between mb-6">
+
+              <div class="bg-purple-100 text-purple-700 px-4 py-3 rounded-full text-sm font-bold">
+                CLC THI 6
+              </div>
+
+              <div class="text-sm text-gray-400 font-semibold">
+                📖 Grammar
+              </div>
+
+            </div>
+
+            <h3 class="text-[34px] leading-[110%] font-extrabold tracking-[-1px] text-[#052b17] mb-5">
+              Grammar Challenge
+            </h3>
+
+            <p class="text-[17px] leading-[160%] text-gray-600 mb-8">
+              Ôn tập ngữ pháp tổng hợp và luyện đề nâng cao.
+            </p>
+
+            <a
+              href="#"
+              class="block text-center py-5 rounded-2xl text-white font-bold text-[16px] shadow-lg bg-purple-600 hover:bg-purple-700 transition"
+            >
+              Vào bài học
+            </a>
+
+          </div>
 
         </div>
 
@@ -460,16 +487,16 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-white border-t border-gray-200 mt-20">
+  <footer id="contact" class="border-t border-white/40 bg-white/50 backdrop-blur-xl mt-10">
 
-    <div class="max-w-7xl mx-auto px-6 py-12">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
 
-      <div class="grid md:grid-cols-2 gap-10">
+      <div class="grid lg:grid-cols-2 gap-14">
 
         <!-- LEFT -->
         <div>
 
-          <div class="flex items-center gap-4 mb-5">
+          <div class="flex items-center gap-5 mb-7">
 
             <img
               src="logo.png"
@@ -478,11 +505,11 @@
 
             <div>
 
-              <h2 class="text-2xl font-bold text-[#0b5d1e]">
+              <h2 class="text-3xl font-extrabold text-[#0b5d1e] tracking-tight">
                 Ms Thao English Center
               </h2>
 
-              <p class="text-gray-500 text-sm mt-1">
+              <p class="text-gray-500 mt-2">
                 English Learning Platform
               </p>
 
@@ -490,20 +517,18 @@
 
           </div>
 
-          <p class="leading-8 text-gray-500 max-w-xl">
-
-            Hệ thống luyện tập và kiểm tra trực tuyến dành cho học sinh trung tâm.
-
+          <p class="text-[17px] leading-[170%] text-gray-600 max-w-2xl">
+            Hệ thống luyện tập và kiểm tra trực tuyến dành cho học sinh tại trung tâm tiếng Anh Ms Thao.
           </p>
 
         </div>
 
         <!-- RIGHT -->
-        <div class="space-y-4 text-gray-600">
+        <div class="space-y-6 text-gray-700 text-[16px] leading-[160%]">
 
           <div>
             ☎ Hotline:
-            <span class="font-bold text-[#0b5d1e]">
+            <span class="font-extrabold text-[#0b5d1e]">
               039.664.1532
             </span>
           </div>
@@ -522,93 +547,15 @@
 
       </div>
 
-      <!-- COPYRIGHT -->
-      <div class="border-t border-gray-100 mt-10 pt-6 text-center text-sm text-gray-400">
-
+      <div class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-400 text-sm">
         © 2026 Ms Thao English Center - All Rights Reserved
-
       </div>
 
     </div>
 
   </footer>
 
-  <!-- SCRIPT -->
-  <script>
-
-    const searchInput = document.getElementById("searchInput");
-    const cards = document.querySelectorAll(".lesson-card");
-    const filterBtns = document.querySelectorAll(".filter-btn");
-
-    let currentClass = "ALL";
-
-    // SEARCH
-    searchInput.addEventListener("keyup", function () {
-
-      const keyword = this.value.toLowerCase();
-
-      cards.forEach(card => {
-
-        const text = card.innerText.toLowerCase();
-        const cardClass = card.dataset.class;
-
-        const matchKeyword = text.includes(keyword);
-
-        const matchClass =
-          currentClass === "ALL" ||
-          currentClass === cardClass;
-
-        if (matchKeyword && matchClass) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-
-      });
-
-    });
-
-    // FILTER
-    filterBtns.forEach(btn => {
-
-      btn.addEventListener("click", function () {
-
-        currentClass = this.dataset.class;
-
-        filterBtns.forEach(b => {
-
-          b.classList.remove("bg-[#0b5d1e]", "text-white");
-
-          b.classList.add("bg-white");
-
-        });
-
-        this.classList.add("bg-[#0b5d1e]", "text-white");
-
-        cards.forEach(card => {
-
-          const cardClass = card.dataset.class;
-
-          if (
-            currentClass === "ALL" ||
-            currentClass === cardClass
-          ) {
-
-            card.style.display = "block";
-
-          } else {
-
-            card.style.display = "none";
-
-          }
-
-        });
-
-      });
-
-    });
-
-  </script>
-
 </body>
+
 </html>
+```
