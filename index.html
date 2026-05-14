@@ -90,10 +90,6 @@
       0 8px 30px rgba(0,0,0,.03);
     }
 
-    /* =========================
-       NAVBAR
-    ========================== */
-
     .navbar{
       display:flex;
       align-items:center;
@@ -163,7 +159,7 @@
     }
 
     /* =========================
-       HOTLINE BUTTON
+       HOTLINE
     ========================== */
 
     .header-phone{
@@ -379,11 +375,14 @@
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
+
+      grid-template-columns:
+      1.05fr
+      .95fr;
 
       gap:60px;
 
-      align-items:flex-start;
+      align-items:center;
     }
 
     /* =========================================================
@@ -441,87 +440,173 @@
     }
 
     /* =========================================================
-   HERO BUTTONS
-========================================================== */
+       HERO BUTTONS
+    ========================================================== */
 
-.hero-buttons{
-  display:flex;
-  align-items:center;
-  gap:18px;
-  flex-wrap:nowrap; /* sửa từ wrap -> nowrap */
-}
+    .hero-buttons{
+      display:flex;
+      align-items:center;
+      gap:18px;
 
-/* =========================================================
-   PRIMARY CTA
-========================================================== */
+      flex-wrap:nowrap;
+    }
 
-.cta-btn{
-  position:relative;
-  overflow:hidden;
+    /* =========================
+       CTA BUTTON
+    ========================== */
 
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+    .cta-btn{
+      position:relative;
+      overflow:hidden;
 
-  min-width:290px; /* thêm */
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
 
-  padding:22px 34px; /* giảm nhẹ */
+      min-width:260px;
 
-  border-radius:999px;
+      height:68px;
 
-  background:
-  linear-gradient(
-    135deg,
-    #0b5d1e,
-    #22c55e
-  );
+      padding:0 34px;
 
-  color:white;
+      border-radius:999px;
 
-  font-size:17px; /* giảm nhẹ */
-  font-weight:700;
+      background:
+      linear-gradient(
+        135deg,
+        #0b5d1e,
+        #22c55e
+      );
 
-  white-space:nowrap; /* thêm */
+      color:white;
 
-  box-shadow:
-  0 20px 45px rgba(34,197,94,.28);
+      font-size:17px;
+      font-weight:700;
 
-  transition:.3s;
-}
+      white-space:nowrap;
 
-/* =========================================================
-   OUTLINE BUTTON
-========================================================== */
+      box-shadow:
+      0 20px 45px rgba(34,197,94,.28);
 
-.outline-btn{
+      transition:
+      transform .3s,
+      box-shadow .3s;
+    }
 
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+    .cta-btn::before{
+      content:"";
 
-  min-width:320px; /* thêm */
+      position:absolute;
 
-  padding:22px 34px; /* giảm nhẹ */
+      top:0;
+      left:-120%;
 
-  border-radius:999px;
+      width:70%;
+      height:100%;
 
-  border:
-  1px solid rgba(0,0,0,.08);
+      background:
+      linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.45),
+        transparent
+      );
 
-  background:
-  rgba(255,255,255,.7);
+      transform:skewX(-20deg);
 
-  backdrop-filter:blur(10px);
+      transition:.8s;
+    }
 
-  color:#111827;
+    .cta-btn:hover::before{
+      left:140%;
+    }
 
-  font-size:17px; /* giảm nhẹ */
-  font-weight:700;
+    .cta-btn:hover{
+      transform:
+      translateY(-3px);
 
-  white-space:nowrap; /* thêm */
+      box-shadow:
+      0 30px 60px rgba(34,197,94,.35);
+    }
 
-  transition:.3s;
-}
+    /* =========================
+       OUTLINE BUTTON
+    ========================== */
+
+    .outline-btn{
+      position:relative;
+      overflow:hidden;
+
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+
+      min-width:260px;
+
+      height:68px;
+
+      padding:0 34px;
+
+      border-radius:999px;
+
+      border:
+      1px solid rgba(0,0,0,.08);
+
+      background:
+      rgba(255,255,255,.8);
+
+      backdrop-filter:blur(10px);
+
+      color:#111827;
+
+      font-size:17px;
+      font-weight:700;
+
+      white-space:nowrap;
+
+      transition:
+      transform .3s,
+      box-shadow .3s,
+      background .3s;
+    }
+
+    .outline-btn::before{
+      content:"";
+
+      position:absolute;
+
+      top:0;
+      left:-120%;
+
+      width:70%;
+      height:100%;
+
+      background:
+      linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.8),
+        transparent
+      );
+
+      transform:skewX(-20deg);
+
+      transition:.8s;
+    }
+
+    .outline-btn:hover::before{
+      left:140%;
+    }
+
+    .outline-btn:hover{
+      background:white;
+
+      transform:
+      translateY(-3px);
+
+      box-shadow:
+      0 20px 45px rgba(0,0,0,.08);
+    }
 
     /* =========================================================
        HERO RIGHT
@@ -529,8 +614,6 @@
 
     .hero-right{
       position:relative;
-
-      padding-top:30px;
     }
 
     /* =========================
@@ -539,6 +622,8 @@
 
     .hero-image{
       position:relative;
+
+      z-index:1;
 
       border-radius:42px;
       overflow:hidden;
@@ -549,7 +634,6 @@
 
     .hero-image img{
       width:100%;
-      height:100%;
       object-fit:cover;
     }
 
@@ -668,64 +752,52 @@
       );
     }
 
-    /* =========================================================
-   FLOATING POSITIONS
-========================================================== */
+    /* =========================
+       FLOATING POSITIONS
+    ========================== */
 
-/* TAG PHƯƠNG PHÁP */
+    .tag-1{
+      top:-10px;
+      left:-36px;
 
-.tag-1{
-  top:-18px;
-  left:-36px;
+      transform:rotate(-8deg);
 
-  transform:rotate(-8deg);
+      animation:
+      floatTag1 5s ease-in-out infinite;
+    }
 
-  animation:
-  floatTag1 5s ease-in-out infinite;
-}
+    .tag-2{
+      top:36px;
+      right:-30px;
 
-/* TAG PHÁT TRIỂN TOÀN DIỆN KỸ NĂNG */
-/* ĐẨY CAO HƠN */
+      transform:rotate(6deg);
 
-.tag-2{
-  top:36px; /* trước là 120px */
+      animation:
+      floatTag2 6s ease-in-out infinite;
+    }
 
-  right:-30px;
+    .tag-3{
+      bottom:84px;
+      left:-56px;
 
-  transform:rotate(6deg);
+      transform:rotate(8deg);
 
-  animation:
-  floatTag2 6s ease-in-out infinite;
-}
+      animation:
+      floatTag3 4.8s ease-in-out infinite;
+    }
 
-/* TAG TRUYỀN CẢM HỨNG */
+    .tag-4{
+      bottom:-16px;
+      right:-36px;
 
-.tag-3{
-  bottom:84px;
+      transform:rotate(-6deg);
 
-  left:-56px;
-
-  transform:rotate(8deg);
-
-  animation:
-  floatTag3 4.8s ease-in-out infinite;
-}
-
-/* TAG ĐỘI NGŨ GIÁO VIÊN */
-
-.tag-4{
-  bottom:-16px;
-
-  right:-36px;
-
-  transform:rotate(-6deg);
-
-  animation:
-  floatTag4 7s ease-in-out infinite;
-}
+      animation:
+      floatTag4 7s ease-in-out infinite;
+    }
 
     /* =========================
-       RANDOM FLOAT ANIMATIONS
+       FLOAT ANIMATION
     ========================== */
 
     @keyframes floatTag1{
@@ -755,19 +827,19 @@
       0%{
         transform:
         translateY(0px)
-        rotate(5deg);
+        rotate(6deg);
       }
 
       50%{
         transform:
         translateY(-10px)
-        rotate(8deg);
+        rotate(10deg);
       }
 
       100%{
         transform:
         translateY(0px)
-        rotate(5deg);
+        rotate(6deg);
       }
 
     }
@@ -777,19 +849,19 @@
       0%{
         transform:
         translateY(0px)
-        rotate(7deg);
+        rotate(8deg);
       }
 
       50%{
         transform:
         translateY(-18px)
-        rotate(3deg);
+        rotate(4deg);
       }
 
       100%{
         transform:
         translateY(0px)
-        rotate(7deg);
+        rotate(8deg);
       }
 
     }
@@ -799,7 +871,7 @@
       0%{
         transform:
         translateY(0px)
-        rotate(-5deg);
+        rotate(-6deg);
       }
 
       50%{
@@ -811,13 +883,13 @@
       100%{
         transform:
         translateY(0px)
-        rotate(-5deg);
+        rotate(-6deg);
       }
 
     }
 
     /* =========================================================
-       PAPER AIRPLANE
+       PAPER PLANE
     ========================================================== */
 
     .paper-plane{
@@ -912,6 +984,10 @@
         display:none;
       }
 
+      .hero-buttons{
+        flex-wrap:wrap;
+      }
+
     }
 
     @media(max-width:768px){
@@ -936,7 +1012,7 @@
 
       .cta-btn,
       .outline-btn{
-        text-align:center;
+        width:100%;
       }
 
       .logo-wrap img{
@@ -963,9 +1039,7 @@
 
     <div class="container navbar">
 
-      <!-- =========================
-           LOGO
-      ========================== -->
+      <!-- LOGO -->
 
       <div class="logo-wrap">
 
@@ -973,9 +1047,7 @@
 
       </div>
 
-      <!-- =========================
-           MENU
-      ========================== -->
+      <!-- MENU -->
 
       <nav class="menu">
 
@@ -988,9 +1060,7 @@
 
       </nav>
 
-      <!-- =========================
-           HEADER RIGHT
-      ========================== -->
+      <!-- RIGHT -->
 
       <div class="header-right">
 
@@ -1053,9 +1123,7 @@
 
     <div class="container hero-grid">
 
-      <!-- =====================================================
-           HERO LEFT
-      ====================================================== -->
+      <!-- HERO LEFT -->
 
       <div class="hero-left">
 
@@ -1085,33 +1153,27 @@
           cho học sinh ở mọi độ tuổi.
         </p>
 
-<!-- =====================================================
-     HERO CTA BUTTONS
-====================================================== -->
+        <!-- HERO BUTTONS -->
 
-<div class="hero-buttons">
+        <div class="hero-buttons">
 
-  <!-- CTA CHÍNH -->
+          <a href="#" class="cta-btn">
+            Học thử ngay!
+          </a>
 
-  <a href="#" class="cta-btn">
-    Học thử ngay!
-  </a>
+          <a href="tests/" class="outline-btn">
+            Luyện tập & test
+          </a>
 
-  <!-- CTA HỆ THỐNG TEST -->
+        </div>
 
-  <a href="tests/" class="outline-btn">
-    Luyện tập & test
-  </a>
+      </div>
 
-</div>
-
-      <!-- =====================================================
-           HERO RIGHT
-      ====================================================== -->
+      <!-- HERO RIGHT -->
 
       <div class="hero-right">
 
-        <!-- PAPER AIRPLANE -->
+        <!-- PAPER PLANE -->
 
         <div class="paper-plane">
 
@@ -1136,7 +1198,7 @@
 
         <div class="plane-line"></div>
 
-        <!-- FLOATING TAG 1 -->
+        <!-- TAG 1 -->
 
         <div class="floating-tag tag-1">
 
@@ -1163,7 +1225,7 @@
 
         </div>
 
-        <!-- FLOATING TAG 2 -->
+        <!-- TAG 2 -->
 
         <div class="floating-tag tag-2">
 
@@ -1175,8 +1237,20 @@
               stroke="currentColor"
               stroke-width="2">
 
-              <rect x="7" y="2" width="10" height="20" rx="2"/>
-              <line x1="11" y1="18" x2="13" y2="18"/>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21V5.5z"/>
+
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 7h8"/>
+
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 11h8"/>
 
             </svg>
 
@@ -1189,7 +1263,7 @@
 
         </div>
 
-        <!-- FLOATING TAG 3 -->
+        <!-- TAG 3 -->
 
         <div class="floating-tag tag-3">
 
@@ -1216,7 +1290,7 @@
 
         </div>
 
-        <!-- FLOATING TAG 4 -->
+        <!-- TAG 4 -->
 
         <div class="floating-tag tag-4">
 
