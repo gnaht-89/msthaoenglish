@@ -6,7 +6,6 @@
 
   <title>Ms Thao English Center</title>
 
-  <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -29,21 +28,17 @@
       background:
       linear-gradient(
         180deg,
-        #f7faf7 0%,
-        #eef7f0 100%
+        #f6fbf7 0%,
+        #f4f7f5 50%,
+        #ffffff 100%
       );
+
       color:#111827;
       overflow-x:hidden;
     }
 
     a{
       text-decoration:none;
-      color:inherit;
-    }
-
-    img{
-      display:block;
-      max-width:100%;
     }
 
     .container{
@@ -53,52 +48,49 @@
 
     /* =========================
        HEADER
-    ========================== */
+    ==========================*/
 
     header{
-      position:fixed;
+      position:sticky;
       top:0;
-      left:0;
-      width:100%;
-      z-index:999;
+      z-index:1000;
 
-      background:rgba(255,255,255,.68);
-      backdrop-filter:blur(20px);
+      backdrop-filter:blur(18px);
 
-      border-bottom:1px solid rgba(255,255,255,.6);
+      background:
+      rgba(255,255,255,.72);
+
+      border-bottom:
+      1px solid rgba(255,255,255,.4);
     }
 
     .navbar{
-      height:86px;
-
       display:flex;
       align-items:center;
       justify-content:space-between;
+
+      padding:18px 0;
     }
 
     .logo-wrap{
       display:flex;
       align-items:center;
-      gap:14px;
+      gap:16px;
     }
 
     .logo-wrap img{
-      width:58px;
-      height:58px;
+      width:88px;
+      height:auto;
       object-fit:contain;
     }
 
     .logo-text h2{
-      font-size:24px;
+      font-size:30px;
       font-weight:800;
-      color:#0b5d1e;
-      line-height:115%;
-    }
+      line-height:100%;
+      letter-spacing:-1px;
 
-    .logo-text p{
-      font-size:13px;
-      color:#6b7280;
-      margin-top:4px;
+      color:#0b5d1e;
     }
 
     .menu{
@@ -111,24 +103,23 @@
       font-size:15px;
       font-weight:600;
       color:#374151;
+
       transition:.25s;
     }
 
     .menu a:hover{
-      color:#0b5d1e;
+      color:#16a34a;
     }
 
-    .cta-btn{
+    .header-btn{
       padding:16px 28px;
-
       border-radius:999px;
 
       background:
       linear-gradient(
         135deg,
         #0b5d1e,
-        #15803d,
-        #53d769
+        #22c55e
       );
 
       color:white;
@@ -136,27 +127,50 @@
       font-size:15px;
 
       box-shadow:
-      0 10px 30px rgba(11,93,30,.18);
+      0 14px 35px rgba(34,197,94,.25);
 
       transition:.3s;
     }
 
-    .cta-btn:hover{
-      transform:translateY(-3px);
+    .header-btn:hover{
+      transform:translateY(-2px);
     }
 
     /* =========================
        HERO
-    ========================== */
+    ==========================*/
 
     .hero{
-      padding-top:160px;
-      padding-bottom:110px;
+      position:relative;
+      overflow:hidden;
+
+      padding:100px 0 70px;
+    }
+
+    .hero::before{
+      content:"";
+
+      position:absolute;
+
+      width:700px;
+      height:700px;
+
+      background:
+      radial-gradient(
+        circle,
+        rgba(34,197,94,.15),
+        transparent 70%
+      );
+
+      top:-200px;
+      left:-150px;
+
+      z-index:-1;
     }
 
     .hero-grid{
       display:grid;
-      grid-template-columns:1.1fr 1fr;
+      grid-template-columns:1fr 1fr;
       gap:70px;
       align-items:center;
     }
@@ -166,67 +180,145 @@
       align-items:center;
       gap:10px;
 
-      padding:14px 20px;
+      padding:14px 22px;
 
       border-radius:999px;
 
-      background:rgba(255,255,255,.72);
-      backdrop-filter:blur(16px);
+      background:
+      rgba(255,255,255,.75);
 
-      border:1px solid rgba(255,255,255,.7);
+      backdrop-filter:blur(12px);
+
+      border:
+      1px solid rgba(255,255,255,.5);
+
+      box-shadow:
+      0 10px 30px rgba(0,0,0,.05);
 
       margin-bottom:28px;
 
       font-size:14px;
       font-weight:700;
 
-      color:#0b5d1e;
+      color:#15803d;
+    }
+
+    .hero-icons{
+      font-size:28px;
+      margin-bottom:18px;
     }
 
     .hero h1{
-      font-size:76px;
+      font-size:78px;
       line-height:108%;
       letter-spacing:-3px;
 
       font-weight:800;
 
-      color:#062b11;
+      margin-bottom:26px;
 
-      margin-bottom:28px;
+      background:
+      linear-gradient(
+        135deg,
+        #052b17,
+        #0b5d1e,
+        #22c55e
+      );
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
     .hero p{
-      font-size:18px;
-      line-height:170%;
-
+      font-size:20px;
+      line-height:180%;
       color:#4b5563;
 
-      max-width:620px;
-
-      margin-bottom:42px;
+      margin-bottom:38px;
     }
 
-    .hero-actions{
+    .hero-buttons{
       display:flex;
       gap:18px;
       flex-wrap:wrap;
     }
 
-    .secondary-btn{
-      padding:16px 28px;
+    .cta-btn{
+      position:relative;
+      overflow:hidden;
+
+      padding:18px 34px;
 
       border-radius:999px;
 
-      background:rgba(255,255,255,.62);
+      background:
+      linear-gradient(
+        135deg,
+        #0b5d1e,
+        #22c55e
+      );
 
-      backdrop-filter:blur(16px);
+      color:white;
 
-      border:1px solid #d1d5db;
+      font-weight:700;
+      font-size:16px;
+
+      box-shadow:
+      0 18px 40px rgba(34,197,94,.25);
+
+      transition:.3s;
+    }
+
+    .cta-btn::before{
+      content:"";
+
+      position:absolute;
+      inset:0;
+
+      background:
+      linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,.3),
+        transparent
+      );
+
+      transform:translateX(-100%);
+      transition:.6s;
+    }
+
+    .cta-btn:hover::before{
+      transform:translateX(100%);
+    }
+
+    .cta-btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .outline-btn{
+      padding:18px 34px;
+
+      border-radius:999px;
+
+      border:
+      1px solid rgba(0,0,0,.08);
+
+      background:
+      rgba(255,255,255,.7);
+
+      backdrop-filter:blur(10px);
 
       color:#111827;
 
-      font-size:15px;
       font-weight:700;
+      font-size:16px;
+
+      transition:.3s;
+    }
+
+    .outline-btn:hover{
+      background:white;
+      transform:translateY(-2px);
     }
 
     .hero-image{
@@ -235,308 +327,154 @@
 
     .hero-image img{
       width:100%;
-      height:680px;
+
+      border-radius:40px;
 
       object-fit:cover;
 
-      border-radius:42px;
-
       box-shadow:
-      0 30px 80px rgba(0,0,0,.12);
+      0 35px 80px rgba(0,0,0,.14);
     }
 
     .floating-card{
       position:absolute;
 
-      bottom:-30px;
       left:-30px;
+      bottom:40px;
 
-      background:rgba(255,255,255,.78);
+      background:
+      rgba(255,255,255,.78);
 
-      backdrop-filter:blur(20px);
+      backdrop-filter:blur(16px);
 
-      border:1px solid rgba(255,255,255,.7);
+      border:
+      1px solid rgba(255,255,255,.45);
 
-      padding:26px 28px;
+      padding:24px 30px;
 
-      border-radius:30px;
+      border-radius:28px;
 
       box-shadow:
-      0 20px 60px rgba(0,0,0,.08);
+      0 25px 60px rgba(0,0,0,.08);
     }
 
-    .floating-card span{
+    .floating-card p{
+      font-size:15px;
       color:#6b7280;
-      font-size:14px;
+      margin-bottom:8px;
     }
 
     .floating-card h3{
-      margin-top:10px;
-
-      font-size:40px;
-      color:#0b5d1e;
-
+      font-size:52px;
       font-weight:800;
+      color:#15803d;
     }
 
     /* =========================
-       SECTION
-    ========================== */
+       STATS
+    ==========================*/
 
-    .section{
-      padding:100px 0;
+    .stats{
+      padding:40px 0 90px;
     }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:70px;
-    }
-
-    .section-title span{
-      color:#16a34a;
-      font-size:14px;
-      font-weight:700;
-      letter-spacing:1px;
-    }
-
-    .section-title h2{
-      margin-top:18px;
-
-      font-size:58px;
-      line-height:115%;
-      letter-spacing:-2px;
-
-      color:#062b11;
-    }
-
-    /* =========================
-       PROGRAM CARDS
-    ========================== */
-
-    .programs{
-      display:flex;
-      flex-direction:column;
-      gap:42px;
-    }
-
-    .program-card{
+    .stats-grid{
       display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:52px;
-      align-items:center;
-
-      padding:40px;
-
-      border-radius:40px;
-
-      background:rgba(255,255,255,.66);
-
-      backdrop-filter:blur(20px);
-
-      border:1px solid rgba(255,255,255,.7);
-
-      box-shadow:
-      0 20px 60px rgba(0,0,0,.06);
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
     }
 
-    .program-card img{
-      width:100%;
-      height:390px;
+    .stat-box{
+      background:
+      rgba(255,255,255,.7);
 
-      object-fit:cover;
+      backdrop-filter:blur(16px);
+
+      border:
+      1px solid rgba(255,255,255,.4);
 
       border-radius:30px;
+
+      padding:36px;
+
+      box-shadow:
+      0 20px 50px rgba(0,0,0,.05);
+
+      transition:.3s;
     }
 
-    .program-content small{
-      color:#16a34a;
-
-      font-size:13px;
-      font-weight:700;
-
-      letter-spacing:1px;
+    .stat-box:hover{
+      transform:translateY(-4px);
     }
 
-    .program-content h3{
-      margin:18px 0 22px;
+    .stat-box h2{
+      font-size:54px;
+      font-weight:800;
 
-      font-size:48px;
-      line-height:115%;
-      letter-spacing:-2px;
-
-      color:#062b11;
-    }
-
-    .program-content p{
-      font-size:17px;
-      line-height:180%;
-
-      color:#4b5563;
-
-      margin-bottom:30px;
-    }
-
-    .feature-list{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:16px;
-
-      margin-bottom:34px;
-    }
-
-    .feature{
-      display:flex;
-      align-items:center;
-      gap:10px;
-
-      font-size:15px;
-      color:#374151;
-    }
-
-    .feature::before{
-      content:"✓";
-
-      color:#16a34a;
-      font-weight:700;
-    }
-
-    .buttons{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer{
-      margin-top:120px;
-
-      padding:70px 0;
-
-      background:white;
-
-      border-top:1px solid #e5e7eb;
-    }
-
-    .footer-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-    }
-
-    .footer-logo{
-      display:flex;
-      gap:16px;
-      align-items:center;
-      margin-bottom:20px;
-    }
-
-    .footer-logo img{
-      width:60px;
-    }
-
-    .footer-logo h3{
-      font-size:26px;
       color:#0b5d1e;
+
+      margin-bottom:10px;
     }
 
-    .footer-text{
+    .stat-box p{
       color:#6b7280;
-      line-height:180%;
-      font-size:15px;
-    }
-
-    .contact-item{
-      margin-bottom:18px;
-
-      font-size:15px;
       line-height:170%;
-
-      color:#374151;
-    }
-
-    .copyright{
-      margin-top:50px;
-
-      padding-top:24px;
-
-      border-top:1px solid #e5e7eb;
-
-      text-align:center;
-
-      font-size:14px;
-      color:#6b7280;
     }
 
     /* =========================
        RESPONSIVE
-    ========================== */
+    ==========================*/
 
-    @media(max-width:980px){
+    @media(max-width:1024px){
 
-      .hero-grid,
-      .program-card,
-      .footer-grid{
+      .hero-grid{
         grid-template-columns:1fr;
       }
 
       .hero h1{
-        font-size:54px;
+        font-size:58px;
       }
 
-      .section-title h2{
-        font-size:40px;
-      }
-
-      .program-content h3{
-        font-size:38px;
+      .stats-grid{
+        grid-template-columns:1fr;
       }
 
       .menu{
         display:none;
       }
 
-      .hero-image img{
-        height:520px;
-      }
-
     }
 
-    @media(max-width:640px){
+    @media(max-width:768px){
 
       .hero{
-        padding-top:130px;
+        padding:70px 0 50px;
       }
 
       .hero h1{
-        font-size:42px;
-        letter-spacing:-2px;
+        font-size:46px;
       }
 
-      .section-title h2{
-        font-size:34px;
-      }
-
-      .program-content h3{
-        font-size:32px;
-      }
-
-      .feature-list{
-        grid-template-columns:1fr;
-      }
-
-      .program-card{
-        padding:22px;
+      .hero p{
+        font-size:17px;
       }
 
       .floating-card{
-        left:12px;
-        bottom:12px;
+        position:relative;
+        left:0;
+        bottom:0;
+        margin-top:20px;
       }
 
-      .logo-text p{
+      .logo-text h2{
+        font-size:24px;
+      }
+
+      .logo-wrap img{
+        width:72px;
+      }
+
+      .header-btn{
         display:none;
       }
 
@@ -555,26 +493,27 @@
 
       <div class="logo-wrap">
 
-        <!-- LOGO -->
-        <img src="assets/logo.png" alt="Logo">
+        <img src="logo.png" alt="logo">
 
         <div class="logo-text">
           <h2>Ms Thao English Center</h2>
-          <p>English Learning Platform</p>
         </div>
 
       </div>
 
       <nav class="menu">
+
         <a href="#">Trang chủ</a>
         <a href="#">Chương trình học</a>
         <a href="#">Giáo viên</a>
         <a href="#">Hình ảnh</a>
         <a href="#">Tin tức</a>
         <a href="#">Liên hệ</a>
+        <a href="tests/u12-multiple-choice/">Bài kiểm tra</a>
+
       </nav>
 
-      <a href="#" class="cta-btn">
+      <a href="#" class="header-btn">
         Đăng ký học thử
       </a>
 
@@ -588,10 +527,16 @@
 
     <div class="container hero-grid">
 
+      <!-- LEFT -->
+
       <div>
 
         <div class="hero-badge">
           ✨ Modern English Learning
+        </div>
+
+        <div class="hero-icons">
+          🚀 📚 ✨
         </div>
 
         <h1>
@@ -604,13 +549,13 @@
           cho học sinh ở mọi độ tuổi.
         </p>
 
-        <div class="hero-actions">
+        <div class="hero-buttons">
 
           <a href="#" class="cta-btn">
             Đăng ký học thử miễn phí
           </a>
 
-          <a href="#programs" class="secondary-btn">
+          <a href="#" class="outline-btn">
             Xem chương trình học
           </a>
 
@@ -618,13 +563,14 @@
 
       </div>
 
+      <!-- RIGHT -->
+
       <div class="hero-image">
 
-        <!-- HERO IMAGE -->
-        <img src="assets/hero.jpg" alt="Hero">
+        <img src="assets/hero.jpg" alt="hero">
 
         <div class="floating-card">
-          <span>Học sinh đang theo học</span>
+          <p>Học sinh đang theo học</p>
           <h3>500+</h3>
         </div>
 
@@ -634,183 +580,33 @@
 
   </section>
 
-  <!-- PROGRAMS -->
+  <!-- STATS -->
 
-  <section class="section" id="programs">
+  <section class="stats">
 
     <div class="container">
 
-      <div class="section-title">
-        <span>CHƯƠNG TRÌNH HỌC</span>
+      <div class="stats-grid">
 
-        <h2>
-          Lộ trình học phù hợp
-          cho từng độ tuổi
-        </h2>
-      </div>
-
-      <div class="programs">
-
-        <!-- CARD 1 -->
-
-        <div class="program-card">
-
-          <img src="assets/gallery/kids.jpg">
-
-          <div class="program-content">
-
-            <small>5–10 TUỔI</small>
-
-            <h3>Kids English</h3>
-
-            <p>
-              Khơi mở sự tự tin và tình yêu tiếng Anh
-              qua hoạt động tương tác, giao tiếp tự nhiên
-              và môi trường học tập vui vẻ.
-            </p>
-
-            <div class="feature-list">
-
-              <div class="feature">
-                Phonics & pronunciation
-              </div>
-
-              <div class="feature">
-                Lớp học tương tác nhỏ
-              </div>
-
-              <div class="feature">
-                Hoạt động sáng tạo
-              </div>
-
-              <div class="feature">
-                Báo cáo tiến độ định kỳ
-              </div>
-
-            </div>
-
-            <div class="buttons">
-
-              <a href="#" class="cta-btn">
-                Đăng ký học thử
-              </a>
-
-              <a href="#" class="secondary-btn">
-                Xem lộ trình
-              </a>
-
-            </div>
-
-          </div>
-
+        <div class="stat-box">
+          <h2>10+</h2>
+          <p>
+            Năm kinh nghiệm giảng dạy và phát triển chương trình tiếng Anh.
+          </p>
         </div>
 
-        <!-- CARD 2 -->
-
-        <div class="program-card">
-
-          <div class="program-content">
-
-            <small>11–15 TUỔI</small>
-
-            <h3>Teen English</h3>
-
-            <p>
-              Phát triển toàn diện kỹ năng học thuật,
-              giao tiếp và phản xạ tiếng Anh giúp học sinh
-              tự tin trong học tập và cuộc sống.
-            </p>
-
-            <div class="feature-list">
-
-              <div class="feature">
-                Grammar & vocabulary
-              </div>
-
-              <div class="feature">
-                Speaking & writing
-              </div>
-
-              <div class="feature">
-                Mock test định kỳ
-              </div>
-
-              <div class="feature">
-                Tăng phản xạ giao tiếp
-              </div>
-
-            </div>
-
-            <div class="buttons">
-
-              <a href="#" class="cta-btn">
-                Đăng ký học thử
-              </a>
-
-              <a href="#" class="secondary-btn">
-                Xem lộ trình
-              </a>
-
-            </div>
-
-          </div>
-
-          <img src="assets/gallery/teen.jpg">
-
+        <div class="stat-box">
+          <h2>98%</h2>
+          <p>
+            Phụ huynh hài lòng với chất lượng đào tạo và môi trường học tập.
+          </p>
         </div>
 
-        <!-- CARD 3 -->
-
-        <div class="program-card">
-
-          <img src="assets/gallery/clc.jpg">
-
-          <div class="program-content">
-
-            <small>CHUYỂN CẤP & CLC</small>
-
-            <h3>Luyện thi Chất lượng cao</h3>
-
-            <p>
-              Lộ trình ôn luyện bài bản giúp học sinh
-              tự tin chinh phục các kỳ thi chuyển cấp
-              và lớp chất lượng cao.
-            </p>
-
-            <div class="feature-list">
-
-              <div class="feature">
-                Đề luyện sát cấu trúc
-              </div>
-
-              <div class="feature">
-                Theo dõi tiến độ học tập
-              </div>
-
-              <div class="feature">
-                Chuyên đề trọng tâm
-              </div>
-
-              <div class="feature">
-                Chiến lược làm bài hiệu quả
-              </div>
-
-            </div>
-
-            <div class="buttons">
-
-              <a href="#" class="cta-btn">
-                Đăng ký học thử
-              </a>
-
-              <a href="#" class="secondary-btn">
-                Xem lộ trình
-              </a>
-
-            </div>
-
-          </div>
-
+        <div class="stat-box">
+          <h2>500+</h2>
+          <p>
+            Học sinh đang theo học tại các lớp Kids English, Teen English và luyện thi.
+          </p>
         </div>
 
       </div>
@@ -818,61 +614,6 @@
     </div>
 
   </section>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div>
-
-          <div class="footer-logo">
-
-            <img src="assets/logo.png">
-
-            <div>
-              <h3>Ms Thao English Center</h3>
-            </div>
-
-          </div>
-
-          <div class="footer-text">
-            Hệ thống đào tạo tiếng Anh hiện đại dành cho học sinh
-            với phương pháp học tập truyền cảm hứng và cá nhân hóa.
-          </div>
-
-        </div>
-
-        <div>
-
-          <div class="contact-item">
-            📞 Hotline: <strong>039.664.1532</strong>
-          </div>
-
-          <div class="contact-item">
-            📍 CS1: Số 24B9, Khu dân cư 918, Tổ 2,
-            Phường Long Biên, Hà Nội
-          </div>
-
-          <div class="contact-item">
-            📍 CS2: Số 1, Ngõ 70, Phố Mai Phúc,
-            Phường Phúc Lợi, Hà Nội
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="copyright">
-        © 2026 Ms Thao English Center — All Rights Reserved
-      </div>
-
-    </div>
-
-  </footer>
 
 </body>
 </html>
