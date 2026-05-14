@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -8,12 +7,12 @@
 
   <title>Ms Thao English Center LMS</title>
 
-  <!-- FONT -->
+  <!-- GOOGLE FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -22,12 +21,16 @@
 
   <style>
 
-    * {
-      font-family: 'Noto Sans', sans-serif;
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f5f7f6;
     }
 
-    body {
-      background: #f4f6f5;
+    h1,
+    h2,
+    h3,
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
     }
 
     :root {
@@ -37,17 +40,17 @@
     }
 
     .card-hover {
-      transition: all 0.3s ease;
+      transition: all 0.35s ease;
     }
 
     .card-hover:hover {
-      transform: translateY(-6px);
+      transform: translateY(-10px) scale(1.02);
       box-shadow: 0 20px 40px rgba(0,0,0,0.08);
     }
 
     .glass {
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.75);
     }
 
   </style>
@@ -57,7 +60,7 @@
 <body class="min-h-screen">
 
   <!-- HEADER -->
-  <header class="bg-white shadow-md border-b border-gray-100">
+  <header class="bg-white shadow-sm border-b border-gray-100">
 
     <div class="max-w-7xl mx-auto px-6 py-5">
 
@@ -66,7 +69,6 @@
         <!-- LEFT -->
         <div class="flex items-center gap-5">
 
-          <!-- LOGO -->
           <img
             src="logo.png"
             alt="Ms Thao English Center"
@@ -75,12 +77,12 @@
 
           <div>
 
-            <h1 class="text-3xl lg:text-4xl font-extrabold text-[var(--primary)]">
+            <h1 class="text-3xl lg:text-5xl font-extrabold text-[#0b5d1e] tracking-tight">
               Ms Thao English Center
             </h1>
 
-            <p class="text-gray-500 mt-1">
-              Hệ thống bài tập & kiểm tra trực tuyến
+            <p class="text-gray-500 mt-2 text-lg">
+              English Learning Platform
             </p>
 
           </div>
@@ -88,11 +90,11 @@
         </div>
 
         <!-- RIGHT -->
-        <div class="text-sm lg:text-right space-y-2 text-gray-600">
+        <div class="text-sm lg:text-right space-y-3 text-gray-600">
 
           <div>
             ☎ Hotline:
-            <span class="font-bold text-[var(--primary)]">
+            <span class="font-bold text-[#0b5d1e]">
               039.664.1532
             </span>
           </div>
@@ -116,10 +118,10 @@
   </header>
 
   <!-- HERO -->
-  <section class="max-w-7xl mx-auto px-6 py-10">
+  <section class="max-w-7xl mx-auto px-6 py-12">
 
     <div
-      class="rounded-[32px] overflow-hidden shadow-xl"
+      class="rounded-[40px] overflow-hidden shadow-2xl"
       style="
         background:
         linear-gradient(
@@ -130,15 +132,17 @@
       "
     >
 
-      <div class="p-10 lg:p-14 text-white">
+      <div class="p-10 lg:p-16 text-white">
 
-        <div class="max-w-3xl">
+        <div class="max-w-4xl">
 
-          <div class="inline-block bg-white/20 px-4 py-2 rounded-full mb-6 text-sm">
+          <div class="inline-block bg-white/20 px-5 py-2 rounded-full mb-7 text-sm font-semibold">
+
             ✨ English Learning Platform
+
           </div>
 
-          <h2 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6">
+          <h2 class="hero-title text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight mb-7">
 
             Chào mừng đến với
             <br>
@@ -146,9 +150,9 @@
 
           </h2>
 
-          <p class="text-lg text-green-100 leading-8">
+          <p class="text-xl text-green-100 leading-9 max-w-3xl">
 
-            Hệ thống luyện tập và kiểm tra trực tuyến dành cho học sinh trung tâm tiếng Anh.
+            Hệ thống luyện tập và kiểm tra trực tuyến hiện đại dành cho học sinh trung tâm tiếng Anh.
 
           </p>
 
@@ -161,9 +165,9 @@
   </section>
 
   <!-- SEARCH -->
-  <section class="max-w-7xl mx-auto px-6 mb-8">
+  <section class="max-w-7xl mx-auto px-6 mb-10">
 
-    <div class="glass rounded-3xl shadow-md p-5 border border-white">
+    <div class="glass rounded-[30px] shadow-md p-5 border border-white">
 
       <input
         type="text"
@@ -174,9 +178,10 @@
           border
           border-gray-200
           rounded-2xl
-          px-5
-          py-4
+          px-6
+          py-5
           outline-none
+          text-lg
           focus:ring-2
           focus:ring-green-600
         "
@@ -186,51 +191,51 @@
 
   </section>
 
-  <!-- CLASS FILTER -->
-  <section class="max-w-7xl mx-auto px-6 mb-10">
+  <!-- FILTER -->
+  <section class="max-w-7xl mx-auto px-6 mb-12">
 
-    <div class="flex flex-wrap gap-3">
+    <div class="flex flex-wrap gap-4">
 
       <button
-        class="filter-btn bg-[var(--primary)] text-white px-5 py-3 rounded-2xl font-semibold"
+        class="filter-btn bg-[#0b5d1e] text-white px-6 py-3 rounded-2xl font-semibold"
         data-class="ALL"
       >
         Tất cả
       </button>
 
-      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="WINTER">
+      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="WINTER">
         WINTER
       </button>
 
-      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="JOLLY">
+      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="JOLLY">
         JOLLY
       </button>
 
-      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="WINDY">
+      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="WINDY">
         WINDY
       </button>
 
-      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="AUTUMN">
+      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="AUTUMN">
         AUTUMN
       </button>
 
-      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="SPRING">
+      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="SPRING">
         SPRING
       </button>
 
-      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="HAPPY">
+      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="HAPPY">
         HAPPY
       </button>
 
-      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="LỚP 7">
+      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="LỚP 7">
         LỚP 7
       </button>
 
-      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="LỚP 8">
+      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="LỚP 8">
         LỚP 8
       </button>
 
-      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="CLC THI 6">
+      <button class="filter-btn bg-white shadow px-6 py-3 rounded-2xl font-medium" data-class="CLC THI 6">
         CLC THI 6
       </button>
 
@@ -239,25 +244,25 @@
   </section>
 
   <!-- LESSON GRID -->
-  <section class="max-w-7xl mx-auto px-6 pb-16">
+  <section class="max-w-7xl mx-auto px-6 pb-20">
 
     <div
       id="lessonGrid"
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10"
     >
 
       <!-- CARD -->
       <div
-        class="lesson-card bg-white rounded-[30px] overflow-hidden shadow-md card-hover"
+        class="lesson-card bg-white rounded-[32px] overflow-hidden shadow-md card-hover"
         data-class="LỚP 8"
       >
 
         <img
-          src="https://picsum.photos/600/400?1"
-          class="w-full h-56 object-cover"
+          src="https://picsum.photos/700/500?1"
+          class="w-full h-60 object-cover"
         >
 
-        <div class="p-7">
+        <div class="p-8">
 
           <div class="flex items-center justify-between mb-5">
 
@@ -281,12 +286,14 @@
 
           </div>
 
-          <h3 class="text-2xl font-extrabold text-gray-800 mb-4">
+          <h3 class="text-3xl font-extrabold text-gray-800 mb-4">
             U12 Multiple Choice
           </h3>
 
-          <p class="text-gray-500 leading-7 mb-6">
+          <p class="text-gray-500 leading-8 mb-7">
+
             Bài luyện tập trắc nghiệm Unit 12 dành cho học sinh lớp 8.
+
           </p>
 
           <a
@@ -298,6 +305,7 @@
               rounded-2xl
               font-bold
               text-white
+              text-lg
             "
             style="
               background:
@@ -317,16 +325,16 @@
 
       <!-- CARD -->
       <div
-        class="lesson-card bg-white rounded-[30px] overflow-hidden shadow-md card-hover"
+        class="lesson-card bg-white rounded-[32px] overflow-hidden shadow-md card-hover"
         data-class="WINTER"
       >
 
         <img
-          src="https://picsum.photos/600/400?2"
-          class="w-full h-56 object-cover"
+          src="https://picsum.photos/700/500?2"
+          class="w-full h-60 object-cover"
         >
 
-        <div class="p-7">
+        <div class="p-8">
 
           <div class="flex items-center justify-between mb-5">
 
@@ -350,12 +358,14 @@
 
           </div>
 
-          <h3 class="text-2xl font-extrabold text-gray-800 mb-4">
+          <h3 class="text-3xl font-extrabold text-gray-800 mb-4">
             Listening Test 01
           </h3>
 
-          <p class="text-gray-500 leading-7 mb-6">
+          <p class="text-gray-500 leading-8 mb-7">
+
             Kiểm tra kỹ năng nghe với audio tương tác.
+
           </p>
 
           <a
@@ -367,6 +377,7 @@
               rounded-2xl
               font-bold
               text-white
+              text-lg
               bg-blue-600
               hover:bg-blue-700
             "
@@ -380,16 +391,16 @@
 
       <!-- CARD -->
       <div
-        class="lesson-card bg-white rounded-[30px] overflow-hidden shadow-md card-hover"
+        class="lesson-card bg-white rounded-[32px] overflow-hidden shadow-md card-hover"
         data-class="CLC THI 6"
       >
 
         <img
-          src="https://picsum.photos/600/400?3"
-          class="w-full h-56 object-cover"
+          src="https://picsum.photos/700/500?3"
+          class="w-full h-60 object-cover"
         >
 
-        <div class="p-7">
+        <div class="p-8">
 
           <div class="flex items-center justify-between mb-5">
 
@@ -413,12 +424,14 @@
 
           </div>
 
-          <h3 class="text-2xl font-extrabold text-gray-800 mb-4">
+          <h3 class="text-3xl font-extrabold text-gray-800 mb-4">
             Grammar Challenge
           </h3>
 
-          <p class="text-gray-500 leading-7 mb-6">
+          <p class="text-gray-500 leading-8 mb-7">
+
             Ôn tập ngữ pháp tổng hợp và luyện đề nâng cao.
+
           </p>
 
           <a
@@ -430,6 +443,7 @@
               rounded-2xl
               font-bold
               text-white
+              text-lg
               bg-purple-600
               hover:bg-purple-700
             "
@@ -446,69 +460,74 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-[#062d10] text-gray-300 py-12">
+  <footer class="bg-white border-t border-gray-200 mt-20">
 
-    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+    <div class="max-w-7xl mx-auto px-6 py-12">
 
-      <!-- LEFT -->
-      <div>
+      <div class="grid md:grid-cols-2 gap-10">
 
-        <div class="flex items-center gap-4 mb-5">
+        <!-- LEFT -->
+        <div>
 
-          <img
-            src="logo.png"
-            class="w-20"
-          >
+          <div class="flex items-center gap-4 mb-5">
+
+            <img
+              src="logo.png"
+              class="w-20"
+            >
+
+            <div>
+
+              <h2 class="text-2xl font-bold text-[#0b5d1e]">
+                Ms Thao English Center
+              </h2>
+
+              <p class="text-gray-500 text-sm mt-1">
+                English Learning Platform
+              </p>
+
+            </div>
+
+          </div>
+
+          <p class="leading-8 text-gray-500 max-w-xl">
+
+            Hệ thống luyện tập và kiểm tra trực tuyến dành cho học sinh trung tâm.
+
+          </p>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="space-y-4 text-gray-600">
 
           <div>
+            ☎ Hotline:
+            <span class="font-bold text-[#0b5d1e]">
+              039.664.1532
+            </span>
+          </div>
 
-            <h2 class="text-2xl font-bold text-white">
-              Ms Thao English Center
-            </h2>
+          <div>
+            📍 CS1: Số 24B9, Khu dân cư 918,
+            Tổ 2, Phường Long Biên, Hà Nội
+          </div>
 
-            <p class="text-green-200 text-sm mt-1">
-              English Learning Platform
-            </p>
-
+          <div>
+            📍 CS2: Số 1, Ngõ 70,
+            Phố Mai Phúc, Phường Phúc Lợi, Hà Nội
           </div>
 
         </div>
 
-        <p class="leading-8 text-gray-400">
-
-          Hệ thống luyện tập và kiểm tra trực tuyến dành cho học sinh trung tâm.
-
-        </p>
-
       </div>
 
-      <!-- RIGHT -->
-      <div class="space-y-4">
+      <!-- COPYRIGHT -->
+      <div class="border-t border-gray-100 mt-10 pt-6 text-center text-sm text-gray-400">
 
-        <div>
-          ☎ Hotline:
-          <span class="font-bold text-white">
-            039.664.1532
-          </span>
-        </div>
-
-        <div>
-          📍 CS1: Số 24B9, Khu dân cư 918,
-          Tổ 2, Phường Long Biên, Hà Nội
-        </div>
-
-        <div>
-          📍 CS2: Số 1, Ngõ 70,
-          Phố Mai Phúc, Phường Phúc Lợi, Hà Nội
-        </div>
+        © 2026 Ms Thao English Center - All Rights Reserved
 
       </div>
-
-    </div>
-
-    <div class="border-t border-green-900 mt-10 pt-6 text-center text-sm text-gray-500">
-
-      © 2025 Ms Thao English Center - All Rights Reserved
 
     </div>
 
@@ -558,13 +577,13 @@
 
         filterBtns.forEach(b => {
 
-          b.classList.remove("bg-[var(--primary)]", "text-white");
+          b.classList.remove("bg-[#0b5d1e]", "text-white");
 
           b.classList.add("bg-white");
 
         });
 
-        this.classList.add("bg-[var(--primary)]", "text-white");
+        this.classList.add("bg-[#0b5d1e]", "text-white");
 
         cards.forEach(card => {
 
@@ -593,4 +612,3 @@
 
 </body>
 </html>
-```
