@@ -1,0 +1,596 @@
+```html
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Ms Thao English Center LMS</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+
+    * {
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    body {
+      background: #f4f6f5;
+    }
+
+    :root {
+      --primary: #0b5d1e;
+      --primary-light: #178c35;
+      --primary-soft: #e7f5eb;
+    }
+
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .glass {
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.8);
+    }
+
+  </style>
+
+</head>
+
+<body class="min-h-screen">
+
+  <!-- HEADER -->
+  <header class="bg-white shadow-md border-b border-gray-100">
+
+    <div class="max-w-7xl mx-auto px-6 py-5">
+
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+
+        <!-- LEFT -->
+        <div class="flex items-center gap-5">
+
+          <!-- LOGO -->
+          <img
+            src="logo.png"
+            alt="Ms Thao English Center"
+            class="w-28 object-contain"
+          >
+
+          <div>
+
+            <h1 class="text-3xl lg:text-4xl font-extrabold text-[var(--primary)]">
+              Ms Thao English Center
+            </h1>
+
+            <p class="text-gray-500 mt-1">
+              Hệ thống bài tập & kiểm tra trực tuyến
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="text-sm lg:text-right space-y-2 text-gray-600">
+
+          <div>
+            ☎ Hotline:
+            <span class="font-bold text-[var(--primary)]">
+              039.664.1532
+            </span>
+          </div>
+
+          <div>
+            📍 CS1: Số 24B9, Khu dân cư 918,
+            Tổ 2, Phường Long Biên, Hà Nội
+          </div>
+
+          <div>
+            📍 CS2: Số 1, Ngõ 70,
+            Phố Mai Phúc, Phường Phúc Lợi, Hà Nội
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="max-w-7xl mx-auto px-6 py-10">
+
+    <div
+      class="rounded-[32px] overflow-hidden shadow-xl"
+      style="
+        background:
+        linear-gradient(
+          135deg,
+          #0b5d1e,
+          #178c35
+        );
+      "
+    >
+
+      <div class="p-10 lg:p-14 text-white">
+
+        <div class="max-w-3xl">
+
+          <div class="inline-block bg-white/20 px-4 py-2 rounded-full mb-6 text-sm">
+            ✨ English Learning Platform
+          </div>
+
+          <h2 class="text-4xl lg:text-6xl font-extrabold leading-tight mb-6">
+
+            Chào mừng đến với
+            <br>
+            Ms Thao LMS 👋
+
+          </h2>
+
+          <p class="text-lg text-green-100 leading-8">
+
+            Hệ thống luyện tập và kiểm tra trực tuyến dành cho học sinh trung tâm tiếng Anh.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SEARCH -->
+  <section class="max-w-7xl mx-auto px-6 mb-8">
+
+    <div class="glass rounded-3xl shadow-md p-5 border border-white">
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="🔍 Tìm bài học..."
+        class="
+          w-full
+          border
+          border-gray-200
+          rounded-2xl
+          px-5
+          py-4
+          outline-none
+          focus:ring-2
+          focus:ring-green-600
+        "
+      />
+
+    </div>
+
+  </section>
+
+  <!-- CLASS FILTER -->
+  <section class="max-w-7xl mx-auto px-6 mb-10">
+
+    <div class="flex flex-wrap gap-3">
+
+      <button
+        class="filter-btn bg-[var(--primary)] text-white px-5 py-3 rounded-2xl font-semibold"
+        data-class="ALL"
+      >
+        Tất cả
+      </button>
+
+      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="WINTER">
+        WINTER
+      </button>
+
+      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="JOLLY">
+        JOLLY
+      </button>
+
+      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="WINDY">
+        WINDY
+      </button>
+
+      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="AUTUMN">
+        AUTUMN
+      </button>
+
+      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="SPRING">
+        SPRING
+      </button>
+
+      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="HAPPY">
+        HAPPY
+      </button>
+
+      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="LỚP 7">
+        LỚP 7
+      </button>
+
+      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="LỚP 8">
+        LỚP 8
+      </button>
+
+      <button class="filter-btn bg-white px-5 py-3 rounded-2xl shadow" data-class="CLC THI 6">
+        CLC THI 6
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- LESSON GRID -->
+  <section class="max-w-7xl mx-auto px-6 pb-16">
+
+    <div
+      id="lessonGrid"
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8"
+    >
+
+      <!-- CARD -->
+      <div
+        class="lesson-card bg-white rounded-[30px] overflow-hidden shadow-md card-hover"
+        data-class="LỚP 8"
+      >
+
+        <img
+          src="https://picsum.photos/600/400?1"
+          class="w-full h-56 object-cover"
+        >
+
+        <div class="p-7">
+
+          <div class="flex items-center justify-between mb-5">
+
+            <span
+              class="
+                bg-green-100
+                text-green-700
+                px-4
+                py-2
+                rounded-full
+                text-sm
+                font-bold
+              "
+            >
+              LỚP 8
+            </span>
+
+            <span class="text-gray-400 text-sm">
+              📝 Quiz
+            </span>
+
+          </div>
+
+          <h3 class="text-2xl font-extrabold text-gray-800 mb-4">
+            U12 Multiple Choice
+          </h3>
+
+          <p class="text-gray-500 leading-7 mb-6">
+            Bài luyện tập trắc nghiệm Unit 12 dành cho học sinh lớp 8.
+          </p>
+
+          <a
+            href="#"
+            class="
+              block
+              text-center
+              py-4
+              rounded-2xl
+              font-bold
+              text-white
+            "
+            style="
+              background:
+              linear-gradient(
+                135deg,
+                #0b5d1e,
+                #178c35
+              );
+            "
+          >
+            Vào bài học
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- CARD -->
+      <div
+        class="lesson-card bg-white rounded-[30px] overflow-hidden shadow-md card-hover"
+        data-class="WINTER"
+      >
+
+        <img
+          src="https://picsum.photos/600/400?2"
+          class="w-full h-56 object-cover"
+        >
+
+        <div class="p-7">
+
+          <div class="flex items-center justify-between mb-5">
+
+            <span
+              class="
+                bg-blue-100
+                text-blue-700
+                px-4
+                py-2
+                rounded-full
+                text-sm
+                font-bold
+              "
+            >
+              WINTER
+            </span>
+
+            <span class="text-gray-400 text-sm">
+              🎧 Listening
+            </span>
+
+          </div>
+
+          <h3 class="text-2xl font-extrabold text-gray-800 mb-4">
+            Listening Test 01
+          </h3>
+
+          <p class="text-gray-500 leading-7 mb-6">
+            Kiểm tra kỹ năng nghe với audio tương tác.
+          </p>
+
+          <a
+            href="#"
+            class="
+              block
+              text-center
+              py-4
+              rounded-2xl
+              font-bold
+              text-white
+              bg-blue-600
+              hover:bg-blue-700
+            "
+          >
+            Vào bài học
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- CARD -->
+      <div
+        class="lesson-card bg-white rounded-[30px] overflow-hidden shadow-md card-hover"
+        data-class="CLC THI 6"
+      >
+
+        <img
+          src="https://picsum.photos/600/400?3"
+          class="w-full h-56 object-cover"
+        >
+
+        <div class="p-7">
+
+          <div class="flex items-center justify-between mb-5">
+
+            <span
+              class="
+                bg-purple-100
+                text-purple-700
+                px-4
+                py-2
+                rounded-full
+                text-sm
+                font-bold
+              "
+            >
+              CLC THI 6
+            </span>
+
+            <span class="text-gray-400 text-sm">
+              📖 Grammar
+            </span>
+
+          </div>
+
+          <h3 class="text-2xl font-extrabold text-gray-800 mb-4">
+            Grammar Challenge
+          </h3>
+
+          <p class="text-gray-500 leading-7 mb-6">
+            Ôn tập ngữ pháp tổng hợp và luyện đề nâng cao.
+          </p>
+
+          <a
+            href="#"
+            class="
+              block
+              text-center
+              py-4
+              rounded-2xl
+              font-bold
+              text-white
+              bg-purple-600
+              hover:bg-purple-700
+            "
+          >
+            Vào bài học
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#062d10] text-gray-300 py-12">
+
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+
+      <!-- LEFT -->
+      <div>
+
+        <div class="flex items-center gap-4 mb-5">
+
+          <img
+            src="logo.png"
+            class="w-20"
+          >
+
+          <div>
+
+            <h2 class="text-2xl font-bold text-white">
+              Ms Thao English Center
+            </h2>
+
+            <p class="text-green-200 text-sm mt-1">
+              English Learning Platform
+            </p>
+
+          </div>
+
+        </div>
+
+        <p class="leading-8 text-gray-400">
+
+          Hệ thống luyện tập và kiểm tra trực tuyến dành cho học sinh trung tâm.
+
+        </p>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="space-y-4">
+
+        <div>
+          ☎ Hotline:
+          <span class="font-bold text-white">
+            039.664.1532
+          </span>
+        </div>
+
+        <div>
+          📍 CS1: Số 24B9, Khu dân cư 918,
+          Tổ 2, Phường Long Biên, Hà Nội
+        </div>
+
+        <div>
+          📍 CS2: Số 1, Ngõ 70,
+          Phố Mai Phúc, Phường Phúc Lợi, Hà Nội
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="border-t border-green-900 mt-10 pt-6 text-center text-sm text-gray-500">
+
+      © 2025 Ms Thao English Center - All Rights Reserved
+
+    </div>
+
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+
+    const searchInput = document.getElementById("searchInput");
+    const cards = document.querySelectorAll(".lesson-card");
+    const filterBtns = document.querySelectorAll(".filter-btn");
+
+    let currentClass = "ALL";
+
+    // SEARCH
+    searchInput.addEventListener("keyup", function () {
+
+      const keyword = this.value.toLowerCase();
+
+      cards.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+        const cardClass = card.dataset.class;
+
+        const matchKeyword = text.includes(keyword);
+
+        const matchClass =
+          currentClass === "ALL" ||
+          currentClass === cardClass;
+
+        if (matchKeyword && matchClass) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+    });
+
+    // FILTER
+    filterBtns.forEach(btn => {
+
+      btn.addEventListener("click", function () {
+
+        currentClass = this.dataset.class;
+
+        filterBtns.forEach(b => {
+
+          b.classList.remove("bg-[var(--primary)]", "text-white");
+
+          b.classList.add("bg-white");
+
+        });
+
+        this.classList.add("bg-[var(--primary)]", "text-white");
+
+        cards.forEach(card => {
+
+          const cardClass = card.dataset.class;
+
+          if (
+            currentClass === "ALL" ||
+            currentClass === cardClass
+          ) {
+
+            card.style.display = "block";
+
+          } else {
+
+            card.style.display = "none";
+
+          }
+
+        });
+
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
+```
