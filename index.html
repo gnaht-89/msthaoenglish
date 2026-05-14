@@ -113,10 +113,16 @@
       flex-shrink:0;
     }
 
-    .logo-wrap img{
-      width:120px;
-      object-fit:contain;
-    }
+.logo-wrap img{
+  width:96px;
+  object-fit:contain;
+
+  transition:.3s;
+}
+
+.logo-wrap img:hover{
+  transform:scale(1.04);
+}
 
     /* =========================
        MENU
@@ -137,11 +143,15 @@
       white-space:nowrap;
 
       transition:.25s;
+
+      display:inline-block;
     }
 
-    .menu a:hover{
-      color:#16a34a;
-    }
+.menu a:hover{
+  color:#16a34a;
+
+  transform:translateY(-2px);
+}
 
     /* =========================
        HEADER RIGHT
@@ -163,9 +173,9 @@
       align-items:center;
       gap:14px;
 
-      height:68px;
+      height:58px;
 
-      padding:0 24px;
+      padding:0 20px;
 
       border-radius:999px;
 
@@ -192,8 +202,8 @@
     ========================== */
 
     .phone-icon{
-      width:50px;
-      height:50px;
+      width:42px;
+      height:42px;
 
       display:flex;
       align-items:center;
@@ -253,9 +263,9 @@
       align-items:center;
       justify-content:center;
 
-      height:68px;
+      height:58px;
 
-      padding:0 34px;
+      padding:0 28px;
 
       border-radius:999px;
 
@@ -268,7 +278,7 @@
 
       color:white;
 
-      font-size:17px;
+      font-size:15px;
       font-weight:700;
 
       box-shadow:
@@ -279,6 +289,9 @@
 
     .header-btn:hover{
       transform:translateY(-2px);
+
+      box-shadow:
+0 24px 50px rgba(34,197,94,.32);
     }
 
     /* =========================
@@ -443,6 +456,9 @@
 
     .cta-btn:hover{
       transform:translateY(-2px);
+
+      box-shadow:
+0 28px 60px rgba(34,197,94,.35);
     }
 
     /* =========================
@@ -470,10 +486,15 @@
       transition:.3s;
     }
 
-    .outline-btn:hover{
-      background:white;
-      transform:translateY(-2px);
-    }
+.outline-btn:hover{
+  background:white;
+
+  transform:
+  translateY(-3px);
+
+  box-shadow:
+  0 18px 40px rgba(0,0,0,.08);
+}
 
     /* =========================================================
        HERO RIGHT
@@ -493,9 +514,7 @@
       border-radius:42px;
       overflow:hidden;
 
-      transform:
-      translateY(20px)
-      rotate(4deg);
+transform:translateY(20px);
 
       box-shadow:
       0 40px 90px rgba(0,0,0,.12);
@@ -538,7 +557,19 @@
       z-index:5;
 
       animation:float 4s ease-in-out infinite;
+
+      transition:.35s;
     }
+
+    .floating-tag:hover{
+  transform:
+  translateY(-6px)
+  scale(1.03)
+  rotate(0deg);
+
+  box-shadow:
+  0 30px 60px rgba(0,0,0,.12);
+}
 
     .floating-tag h4{
       font-size:16px;
@@ -619,21 +650,29 @@
     .tag-1{
       top:-24px;
       left:-36px;
+
+      transform:rotate(-6deg);
     }
 
     .tag-2{
       top:90px;
       right:-34px;
+
+      transform:rotate(4deg);
     }
 
     .tag-3{
       bottom:46px;
       left:-46px;
+
+      transform:rotate(5deg);
     }
 
     .tag-4{
       bottom:-18px;
       right:-30px;
+
+      transform:rotate(-4deg);
     }
 
     /* =========================
@@ -780,7 +819,7 @@
       }
 
       .logo-wrap img{
-        width:90px;
+        width:70px;
       }
 
       .floating-tag{
