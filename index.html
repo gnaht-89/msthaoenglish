@@ -440,116 +440,88 @@
       margin-bottom:42px;
     }
 
-    /* =========================
-       HERO BUTTONS
-    ========================== */
+    /* =========================================================
+   HERO BUTTONS
+========================================================== */
 
-    .hero-buttons{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      flex-wrap:wrap;
-    }
+.hero-buttons{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  flex-wrap:nowrap; /* sửa từ wrap -> nowrap */
+}
 
-    /* =========================
-       PRIMARY CTA
-    ========================== */
+/* =========================================================
+   PRIMARY CTA
+========================================================== */
 
-    .cta-btn{
-      position:relative;
-      overflow:hidden;
+.cta-btn{
+  position:relative;
+  overflow:hidden;
 
-      padding:24px 42px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-      border-radius:999px;
+  min-width:290px; /* thêm */
 
-      background:
-      linear-gradient(
-        135deg,
-        #0b5d1e,
-        #22c55e
-      );
+  padding:22px 34px; /* giảm nhẹ */
 
-      color:white;
+  border-radius:999px;
 
-      font-size:18px;
-      font-weight:700;
+  background:
+  linear-gradient(
+    135deg,
+    #0b5d1e,
+    #22c55e
+  );
 
-      box-shadow:
-      0 20px 45px rgba(34,197,94,.28);
+  color:white;
 
-      transition:.3s;
-    }
+  font-size:17px; /* giảm nhẹ */
+  font-weight:700;
 
-    .cta-btn::before{
-      content:"";
+  white-space:nowrap; /* thêm */
 
-      position:absolute;
+  box-shadow:
+  0 20px 45px rgba(34,197,94,.28);
 
-      top:0;
-      left:-120%;
+  transition:.3s;
+}
 
-      width:80%;
-      height:100%;
+/* =========================================================
+   OUTLINE BUTTON
+========================================================== */
 
-      background:
-      linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,.4),
-        transparent
-      );
+.outline-btn{
 
-      transform:skewX(-20deg);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
 
-      transition:.8s;
-    }
+  min-width:320px; /* thêm */
 
-    .cta-btn:hover::before{
-      left:130%;
-    }
+  padding:22px 34px; /* giảm nhẹ */
 
-    .cta-btn:hover{
-      transform:translateY(-3px);
+  border-radius:999px;
 
-      box-shadow:
-      0 28px 60px rgba(34,197,94,.35);
-    }
+  border:
+  1px solid rgba(0,0,0,.08);
 
-    /* =========================
-       OUTLINE BUTTON
-    ========================== */
+  background:
+  rgba(255,255,255,.7);
 
-    .outline-btn{
-      padding:24px 42px;
+  backdrop-filter:blur(10px);
 
-      border-radius:999px;
+  color:#111827;
 
-      border:
-      1px solid rgba(0,0,0,.08);
+  font-size:17px; /* giảm nhẹ */
+  font-weight:700;
 
-      background:
-      rgba(255,255,255,.7);
+  white-space:nowrap; /* thêm */
 
-      backdrop-filter:blur(10px);
-
-      color:#111827;
-
-      font-size:18px;
-      font-weight:700;
-
-      transition:.3s;
-    }
-
-    .outline-btn:hover{
-      background:white;
-
-      transform:
-      translateY(-3px);
-
-      box-shadow:
-      0 18px 40px rgba(0,0,0,.08);
-    }
+  transition:.3s;
+}
 
     /* =========================================================
        HERO RIGHT
@@ -696,49 +668,61 @@
       );
     }
 
-    /* =========================
-       FLOATING POSITIONS
-    ========================== */
+    /* =========================================================
+   FLOATING POSITIONS
+========================================================== */
 
-    .tag-1{
-      top:-10px;
-      left:-36px;
+/* TAG PHƯƠNG PHÁP */
 
-      transform:rotate(-8deg);
+.tag-1{
+  top:-18px;
+  left:-36px;
 
-      animation:
-      floatTag1 5s ease-in-out infinite;
-    }
+  transform:rotate(-8deg);
 
-    .tag-2{
-      top:120px;
-      right:-24px;
+  animation:
+  floatTag1 5s ease-in-out infinite;
+}
 
-      transform:rotate(5deg);
+/* TAG PHÁT TRIỂN TOÀN DIỆN KỸ NĂNG */
+/* ĐẨY CAO HƠN */
 
-      animation:
-      floatTag2 6s ease-in-out infinite;
-    }
+.tag-2{
+  top:36px; /* trước là 120px */
 
-    .tag-3{
-      bottom:70px;
-      left:-50px;
+  right:-30px;
 
-      transform:rotate(7deg);
+  transform:rotate(6deg);
 
-      animation:
-      floatTag3 4.8s ease-in-out infinite;
-    }
+  animation:
+  floatTag2 6s ease-in-out infinite;
+}
 
-    .tag-4{
-      bottom:-10px;
-      right:-30px;
+/* TAG TRUYỀN CẢM HỨNG */
 
-      transform:rotate(-5deg);
+.tag-3{
+  bottom:84px;
 
-      animation:
-      floatTag4 7s ease-in-out infinite;
-    }
+  left:-56px;
+
+  transform:rotate(8deg);
+
+  animation:
+  floatTag3 4.8s ease-in-out infinite;
+}
+
+/* TAG ĐỘI NGŨ GIÁO VIÊN */
+
+.tag-4{
+  bottom:-16px;
+
+  right:-36px;
+
+  transform:rotate(-6deg);
+
+  animation:
+  floatTag4 7s ease-in-out infinite;
+}
 
     /* =========================
        RANDOM FLOAT ANIMATIONS
@@ -1101,21 +1085,25 @@
           cho học sinh ở mọi độ tuổi.
         </p>
 
-        <!-- HERO CTA -->
+<!-- =====================================================
+     HERO CTA BUTTONS
+====================================================== -->
 
-        <div class="hero-buttons">
+<div class="hero-buttons">
 
-          <a href="#" class="cta-btn">
-            Bắt đầu hành trình ngay!
-          </a>
+  <!-- CTA CHÍNH -->
 
-          <a href="tests/u12-multiple-choice/" class="outline-btn">
-            Kiểm tra trình độ miễn phí
-          </a>
+  <a href="#" class="cta-btn">
+    Học thử ngay!
+  </a>
 
-        </div>
+  <!-- CTA HỆ THỐNG TEST -->
 
-      </div>
+  <a href="tests/" class="outline-btn">
+    Luyện tập & test
+  </a>
+
+</div>
 
       <!-- =====================================================
            HERO RIGHT
