@@ -1760,7 +1760,7 @@
 }
 
 /* =========================================================
-   COURSE CONTENT LAYOUT FIX
+   COURSE CONTENT
 ========================================================== */
 
 .course-content{
@@ -1777,7 +1777,7 @@
 .course-level{
   display:inline-block;
 
-  margin-bottom:16px;
+  margin-bottom:14px;
 
   font-size:13px;
   font-weight:800;
@@ -1785,23 +1785,22 @@
   letter-spacing:1px;
 
   color:#22c55e;
-
-  min-height:20px;
 }
 
 /* TITLE */
 
 .course-content h3{
   font-size:38px;
-  line-height:115%;
+  line-height:120%;
 
   font-weight:800;
 
   color:#0f172a;
 
-  margin-bottom:18px;
+  margin-bottom:20px;
 
-  min-height:92px; /* QUAN TRỌNG */
+  /* QUAN TRỌNG */
+  min-height:unset;
 }
 
 /* FEATURE */
@@ -1809,24 +1808,32 @@
 .course-feature{
   display:flex;
   align-items:flex-start;
-  gap:10px;
+
+  gap:12px;
 
   margin-bottom:18px;
 
-  min-height:72px; /* QUAN TRỌNG */
+  min-height:64px;
 }
 
 .course-feature span{
   font-size:18px;
+
+  margin-top:2px;
+
+  flex-shrink:0;
 }
 
 .course-feature p{
-  font-size:17px;
-  line-height:170%;
+  font-size:16px;
+  line-height:155%;
 
   color:#111827;
 
-  font-weight:600;
+  font-weight:700;
+
+  /* QUAN TRỌNG */
+  text-wrap:balance;
 }
 
 /* DESCRIPTION */
@@ -1837,9 +1844,10 @@
 
   color:#6b7280;
 
-  margin-bottom:28px;
+  margin-bottom:26px;
 
-  min-height:150px; /* QUAN TRỌNG */
+  /* chỉ giữ chiều cao vừa đủ */
+  min-height:110px;
 }
 
 /* POINTS */
@@ -1847,22 +1855,53 @@
 .course-points{
   display:flex;
   flex-direction:column;
-  gap:16px;
+  gap:14px;
 
-  padding-top:26px;
+  padding-top:24px;
 
   border-top:
   1px solid rgba(0,0,0,.06);
 
-  margin-bottom:34px;
+  margin-bottom:28px;
 
-  min-height:190px; /* QUAN TRỌNG */
+  /* bỏ min-height cứng */
+  min-height:unset;
+}
+
+/* ITEM */
+
+.course-point{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+}
+
+.course-point svg{
+  width:18px;
+  height:18px;
+
+  flex-shrink:0;
+
+  color:#22c55e;
+
+  margin-top:3px;
+}
+
+.course-point span{
+  font-size:15px;
+  line-height:170%;
+
+  color:#374151;
 }
 
 /* LINK */
 
 .course-link{
-  margin-top:auto; /* MAGIC */
+  margin-top:auto;
+
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
 }
 
 /* =========================================================
