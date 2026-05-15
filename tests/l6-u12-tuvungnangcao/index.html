@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L6 U12 từ vựng nâng cao</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SortableJS for Drag and Drop -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Nunito', sans-serif; background-color: #f0fdf4; }
+        .font-reading { font-family: 'Merriweather', serif; line-height: 1.8; }
+        
+        .font-timer { 
+            font-family: 'Nunito', sans-serif; 
+            font-weight: 800;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #dcfce7; }
+        ::-webkit-scrollbar-thumb { background: #4ade80; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #22c55e; }
+
+        /* Writing Input Box Style */
+        .writing-input {
+            background-color: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 0.5rem 1rem;
+            outline: none;
+            color: #000000;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .writing-input:focus {
+            background-color: #ffffff;
+            border-color: #22c55e;
+            box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+        }
+
+        .writing-input::placeholder {
+            color: #94a3b8;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        /* Q-Badge Style */
+        .q-badge {
+            background-color: #dcfce7;
+            color: #166534;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 45px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        /* Flat Circular Logo */
+        .logo-circle {
+            width: 44px;
+            height: 44px;
+            background: #15803d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        /* Correction Classes */
+        .option-correct {
+            background-color: #f0fdf4 !important;
+            border-color: #22c55e !important;
+            color: #15803d !important;
+        }
+        .option-wrong {
+            background-color: #fef2f2 !important;
+            border-color: #ef4444 !important;
+            color: #991b1b !important;
+        }
+        .explanation-box {
+            background-color: #fffbeb;
+            border-left: 4px solid #facc15;
+            padding: 0.75rem 1rem;
+            margin-top: 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.95rem;
+            color: #451a03;
+        }
+
+        /* Result Modal Specific Icons */
+        .status-circle {
+            width: 80px;
+            height: 80px;
+            background: #dcfce7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #16a34a;
+            font-size: 2.5rem;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        footer {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body class="pb-40">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="logo-circle flex-shrink-0">
+                    <i class="fas fa-graduation-cap text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-black text-green-700 text-lg leading-tight uppercase tracking-tight">MS THAO ENGLISH CENTER</span>
+                    <span class="text-[10px] sm:text-[11px] text-gray-500 font-bold uppercase tracking-wider">039.664.1532 - Long Biên, Hà Nội</span>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <div class="bg-green-50 border-2 border-green-200 text-green-700 px-3 py-1.5 sm:px-5 rounded-2xl font-bold shadow-sm flex items-center">
+                    <i class="fas fa-stopwatch mr-2 text-green-600"></i>
+                    <span id="timer" class="font-timer text-xl">20:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="w-full bg-gray-100 h-1.5">
+            <div id="progress-bar" class="bg-green-500 h-1.5 transition-all duration-1000" style="width: 100%;"></div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 mt-24 max-w-4xl">
+        
+        <!-- Title Banner -->
+        <div class="bg-white rounded-3xl shadow-sm p-6 mb-6 border-l-8 border-green-500 flex justify-between items-center relative overflow-hidden group">
+            <div class="z-10">
+                <h1 class="text-2xl font-black text-gray-800 mb-1 tracking-tight">L6 U12</h1>
+                <p class="font-bold text-green-600 bg-green-50 px-3 py-1 rounded-md inline-block text-sm mb-3">TỪ VỰNG NÂNG CAO</p>
+                <div class="flex items-center text-gray-500 text-xs sm:text-sm space-x-4 font-bold">
+                    <span class="flex items-center"><i class="far fa-clock mr-1.5 text-green-500"></i> 20 phút</span>
+                    <span class="flex items-center"><i class="far fa-file-alt mr-1.5 text-green-500"></i> 40 câu hỏi</span>
+                </div>
+            </div>
+            
+            <div class="animate-float flex-shrink-0 ml-4 hidden sm:block">
+                <div class="bg-white-50 p-3 rounded-2xl border-2 border-green-100 shadow-sm">
+                    <div class="hidden sm:block text-5xl text-green-100">
+                    <i class="fas fa-file-signature"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute -right-4 -bottom-4 opacity-5 pointer-events-none">
+                <i class="fas fa-graduation-cap text-8xl rotate-12"></i>
+            </div>
+        </div>
+
+        <!-- Section: PART I - MCQ -->
+        <section id="mcq-section-container" class="mb-8">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                <div class="bg-green-600 p-5 text-white flex justify-between items-center">
+                    <h2 class="font-bold text-xl uppercase tracking-wide"><i class="fas fa-list-ul mr-2"></i>PART I: OBJECTIVE QUESTIONS</h2>
+                </div>
+                <div id="mcq-section" class="p-4 md:p-6 space-y-6">
+                    <!-- Injected via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: PART II - WRITING -->
+        <section id="writing-section" class="mt-8 mb-8">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+                <div class="bg-green-600 p-5 text-white flex justify-between items-center">
+                    <h2 class="font-bold text-xl uppercase tracking-wide"><i class="fas fa-edit mr-2"></i>PART II: WRITING</h2>
+                </div>
+                
+                <div class="p-6 md:p-10">
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="h-8 w-1.5 bg-green-400 rounded-full"></div>
+                            <h3 class="font-bold text-green-800 text-lg tracking-wide uppercase">Put the correct form of the verbs in bracket</h3>
+                        </div>
+                        <div id="gap-fill-1" class="space-y-8 mb-12"></div>
+
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="h-8 w-1.5 bg-green-400 rounded-full"></div>
+                            <h3 class="font-bold text-green-800 text-lg tracking-wide uppercase">Rewrite sentences without changing the meaning</h3>
+                        </div>
+                        <div id="gap-fill-2" class="space-y-10 mb-12"></div>
+
+                        <div class="flex items-center space-x-3 mb-6">
+                            <div class="h-8 w-1.5 bg-green-400 rounded-full"></div>
+                            <h3 class="font-bold text-green-800 text-lg tracking-wide uppercase">Rearrange the words to make complete sentences</h3>
+                        </div>
+                        <div id="drag-drop-container" class="space-y-8"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Bottom Action Bar / Footer Information -->
+    <footer class="fixed bottom-0 left-0 w-full border-t z-40 bg-white shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+        <!-- New Detailed Contact Footer -->
+        <div class="bg-green-700 text-white py-3 px-4">
+            <div class="container mx-auto max-w-4xl flex flex-col md:flex-row justify-between items-center text-[13px] gap-2">
+                <div class="font-black uppercase tracking-tight flex items-center">
+                    <i class="fas fa-graduation-cap mr-2"></i> Ms Thảo English Center
+                </div>
+                <div class="opacity-90 flex items-center text-center md:text-left">
+                    <i class="fas fa-map-marker-alt mr-2 text-green-300"></i> Số 24B9, KDC 918, Tổ 2, Phường Long Biên, Hà Nội
+                </div>
+                <div class="font-bold flex items-center">
+                    <i class="fas fa-phone-alt mr-2 text-green-300"></i> 039.664.1532
+                </div>
+            </div>
+        </div>
+        
+        <!-- Submission Row -->
+        <div class="container mx-auto max-w-4xl p-4 flex justify-between items-center bg-white">
+            <div class="text-sm text-gray-600 font-bold">
+                Tiến độ: <span id="completed-count" class="font-black text-green-600 text-xl">0</span> / 40 câu
+            </div>
+            <button id="btn-submit" onclick="confirmSubmit()" class="bg-green-600 text-white px-10 py-3 rounded-2xl font-bold shadow-lg hover:bg-green-700 transition-all w-full sm:w-auto text-lg flex items-center justify-center">
+                <i class="fas fa-paper-plane mr-2"></i> NỘP BÀI THI
+            </button>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="name-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full border-t-8 border-green-500 text-center">
+            <div class="logo-circle mx-auto mb-4 w-16 h-16 text-3xl">
+                <i class="fas fa-user-graduate"></i>
+            </div>
+            <h3 class="text-2xl font-black text-gray-800 mb-2">Chào mừng bạn!</h3>
+            <p class="text-gray-500 font-bold mb-6">Vui lòng nhập họ tên và lớp để bắt đầu bài thi.</p>
+            <input type="text" id="student-name-input" class="writing-input mb-4 text-center text-lg" placeholder="Nhập họ và tên của bạn...">
+            <select id="student-class-input" class="writing-input mb-6 text-center text-lg">
+                <option value="" disabled selected>Chọn lớp của bạn...</option>
+                <option value="WINTER">WINTER</option>
+                <option value="JOLLY">JOLLY</option>
+                <option value="WINDY">WINDY</option>
+                <option value="AUTUMN">AUTUMN</option>
+                <option value="SPRING">SPRING</option>
+                <option value="HAPPY">HAPPY</option>
+                <option value="LỚP 7">LỚP 7</option>
+                <option value="LỚP 8">LỚP 8</option>
+                <option value="CLC THI 6">CLC THI 6</option>
+            </select>
+            <button onclick="beginQuiz()" class="w-full py-3 bg-green-600 text-white rounded-xl font-bold hover:bg-green-700 shadow-md transition text-lg">Bắt đầu thi</button>
+        </div>
+    </div>
+
+    <div id="confirm-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl p-8 max-w-sm w-full border-t-8 border-green-500 text-center">
+            <i class="fas fa-question-circle text-5xl text-green-500 mb-4"></i>
+            <h3 class="text-2xl font-black text-gray-800 mb-2">Xác nhận nộp bài?</h3>
+            <p class="text-gray-500 font-bold mb-6 italic">Hãy kiểm tra kỹ trước khi nộp!</p>
+            <div class="flex space-x-3">
+                <button onclick="closeModal('confirm-modal')" class="flex-1 py-3 border rounded-xl font-bold hover:bg-gray-50 transition">Hủy</button>
+                <button onclick="processSubmission()" class="flex-1 py-3 bg-green-600 text-white rounded-xl font-bold hover:bg-green-700 shadow-md transition">Đồng ý</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div id="result-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-[2.5rem] shadow-2xl p-8 max-w-md w-full text-center relative overflow-hidden border-t-8 border-green-500">
+            <div class="status-circle">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <h2 class="text-3xl font-black text-gray-800 mb-1">Hoàn Thành!</h2>
+            <p class="text-gray-400 font-bold mb-8">Bạn đã hoàn thành bài thi L6 U12 từ vựng nâng cao</p>
+            
+            <div class="grid grid-cols-2 gap-4 mb-10">
+                <div class="bg-blue-50/50 p-6 rounded-[2rem] border border-blue-100">
+                    <div class="text-[10px] font-black text-blue-400 uppercase tracking-widest mb-1">ĐIỂM SỐ</div>
+                    <div class="text-4xl font-black text-blue-600" id="result-score">0.00</div>
+                </div>
+                <div class="bg-green-50/50 p-6 rounded-[2rem] border border-green-100">
+                    <div class="text-[10px] font-black text-green-400 uppercase tracking-widest mb-1">ĐÚNG</div>
+                    <div class="text-4xl font-black text-green-600" id="result-correct">0/40</div>
+                </div>
+            </div>
+            
+            <button onclick="closeModal('result-modal'); showCorrections();" class="w-full py-5 bg-[#333741] text-white rounded-2xl font-black transition-all hover:bg-black shadow-xl uppercase tracking-widest text-sm">
+                XEM ĐÁP ÁN CHI TIẾT
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let timeRemaining = 20 * 60;
+        let timerInterval;
+
+        const rawQuizData = [
+            { id: 1, type: 'mcq', q: "I completely \"_______\" your good idea.", options: {A: "agree with", B: "transmits information", C: "attend", D: "lift objects"}, answer: "A", explain: "Dịch: Tôi hoàn toàn đồng ý với ý kiến hay của bạn. 'agree with': đồng ý với." },
+            { id: 2, type: 'mcq', q: "The new communication device can \"_______\" across the globe instantly.", options: {A: "lift objects", B: "transmit information", C: "water plants", D: "cut the hedge"}, answer: "B", explain: "Dịch: Thiết bị giao tiếp mới có thể truyền thông tin trên toàn cầu ngay lập tức. 'transmit information': truyền thông tin." },
+            { id: 3, type: 'mcq', q: "All students must \"_______\" the meeting about the new robotics club.", options: {A: "attend", B: "guard", C: "do", D: "repair"}, answer: "A", explain: "Dịch: Tất cả học sinh phải tham gia cuộc họp về câu lạc bộ robot mới. 'attend': tham dự." },
+            { id: 4, type: 'mcq', q: "Industrial robots are very strong; they can \"_______\" easily.", options: {A: "recognize voices", B: "make coffee", C: "lift heavy objects", D: "understand feelings"}, answer: "C", explain: "Dịch: Robot công nghiệp rất khỏe; chúng có thể nâng các vật nặng dễ dàng. 'lift heavy objects': nâng vật nặng." },
+            { id: 5, type: 'mcq', q: "We need a security robot to \"_______\" when we are on holiday.", options: {A: "do the ironing", B: "make the bed", C: "guard the house", D: "clean the floor"}, answer: "C", explain: "Dịch: Chúng ta cần một robot an ninh để bảo vệ ngôi nhà khi chúng ta đi nghỉ. 'guard the house': bảo vệ nhà." },
+            { id: 6, type: 'mcq', q: "Can your robot \"_______\" in the morning? I need a hot drink.", options: {A: "make coffee", B: "explore the ocean", C: "lift objects", D: "build space stations"}, answer: "A", explain: "Dịch: Robot của bạn có thể pha cà phê vào buổi sáng không? Tôi cần một đồ uống nóng. 'make coffee': pha cà phê." },
+            { id: 7, type: 'mcq', q: "Advanced robots have smart sensors to \"_______\" and follow our commands.", options: {A: "recognize voices", B: "water the plants", C: "cut the hedge", D: "do the washing"}, answer: "A", explain: "Dịch: Các robot tiên tiến có cảm biến thông minh để nhận dạng giọng nói và làm theo lệnh của chúng ta. 'recognize voices': nhận diện giọng nói." },
+            { id: 8, type: 'mcq', q: "Some modern robots can \"_______\" and comfort people when they are sad.", options: {A: "build houses", B: "understand our feelings", C: "repair machines", D: "transmit information"}, answer: "B", explain: "Dịch: Một số robot hiện đại có thể hiểu cảm xúc của chúng ta và an ủi mọi người khi họ buồn. 'understand our feelings': hiểu cảm xúc." },
+            { id: 9, type: 'mcq', q: "I hate doing chores, so I bought a robot to \"_______\" for me.", options: {A: "attend classes", B: "do the ironing", C: "build space stations", D: "recognize faces"}, answer: "B", explain: "Dịch: Tôi ghét làm việc nhà, vì vậy tôi đã mua một robot để ủi đồ cho tôi. 'do the ironing': ủi quần áo." },
+            { id: 10, type: 'mcq', q: "\"_______\" are designed to help doctors and nurses in hospitals.", options: {A: "Space robots", B: "Worker robots", C: "Doctor robots", D: "Home robots"}, answer: "C", explain: "Dịch: Robot bác sĩ được thiết kế để giúp bác sĩ và y tá trong bệnh viện. 'Doctor robots': robot bác sĩ." },
+            { id: 11, type: 'mcq', q: "\"_______\" can explore other planets and build stations there.", options: {A: "Home robots", B: "Space robots", C: "Teaching robots", D: "Doctor robots"}, answer: "B", explain: "Dịch: Robot không gian có thể khám phá các hành tinh khác và xây dựng trạm ở đó. 'Space robots': robot không gian." },
+            { id: 12, type: 'mcq', q: "In factories, \"_______\" help to build cars and lift heavy parts.", options: {A: "worker robots", B: "teaching robots", C: "home robots", D: "space robots"}, answer: "A", explain: "Dịch: Trong các nhà máy, robot công nhân giúp chế tạo ô tô và nâng các bộ phận nặng. 'worker robots': robot công nhân." },
+            { id: 13, type: 'mcq', q: "\"_______\" will help teachers to explain difficult subjects in the classroom.", options: {A: "Worker robots", B: "Doctor robots", C: "Teaching robots", D: "Space robots"}, answer: "C", explain: "Dịch: Robot giảng dạy sẽ giúp giáo viên giải thích những môn học khó trong lớp. 'Teaching robots': robot dạy học." },
+            { id: 14, type: 'mcq', q: "Look at the garden! Can your robot \"_______\"?", options: {A: "cut the hedge", B: "make the bed", C: "do the washing", D: "make coffee"}, answer: "A", explain: "Dịch: Nhìn khu vườn kìa! Robot của bạn có thể cắt tỉa hàng rào không? 'cut the hedge': cắt tỉa hàng rào." },
+            { id: 15, type: 'mcq', q: "It is too dry today. Please ask the robot to \"_______\".", options: {A: "do the ironing", B: "water the plants", C: "guard the house", D: "lift objects"}, answer: "B", explain: "Dịch: Hôm nay trời quá hanh khô. Làm ơn yêu cầu robot tưới cây. 'water the plants': tưới cây." },
+            { id: 16, type: 'mcq', q: "My robot is broken. Can you \"_______\" it for me?", options: {A: "attend", B: "repair", C: "recognize", D: "transmit"}, answer: "B", explain: "Dịch: Robot của tôi bị hỏng. Bạn có thể sửa nó cho tôi không? 'repair': sửa chữa." },
+            { id: 17, type: 'mcq', q: "Robots can do many things, but they cannot replace \"_______\" completely.", options: {A: "machines", B: "planets", C: "humans", D: "factories"}, answer: "C", explain: "Dịch: Robot có thể làm nhiều thứ, nhưng chúng không thể thay thế con người hoàn toàn. 'humans': con người." },
+            { id: 18, type: 'mcq', q: "In the \"_______\", robots will be smarter and more useful to our society.", options: {A: "past", B: "future", C: "history", D: "yesterday"}, answer: "B", explain: "Dịch: Trong tương lai, robot sẽ thông minh hơn và hữu ích hơn cho xã hội của chúng ta. 'future': tương lai." },
+            { id: 19, type: 'mcq', q: "Exploring the deep ocean is \"_______\", so we use robots instead of humans.", options: {A: "safe", B: "easy", C: "dangerous", D: "minor"}, answer: "C", explain: "Dịch: Khám phá đại dương sâu thẳm là nguy hiểm, vì vậy chúng tôi sử dụng robot thay cho con người. 'dangerous': nguy hiểm." },
+            { id: 20, type: 'mcq', q: "The rescue robot brought the trapped victims out \"_______\".", options: {A: "safely", B: "danger", C: "dangerous", D: "heavy"}, answer: "A", explain: "Dịch: Robot cứu hộ đã đưa các nạn nhân bị mắc kẹt ra ngoài một cách an toàn. Cần trạng từ bổ nghĩa cho động từ: 'safely'." },
+            { id: 21, type: 'mcq', q: "A smart robot can \"_______\" through the house without hitting the furniture.", options: {A: "attend", B: "navigate", C: "lift", D: "agree"}, answer: "B", explain: "Dịch: Một robot thông minh có thể di chuyển trong nhà mà không va vào đồ đạc. 'navigate': di chuyển, điều hướng." },
+            { id: 22, type: 'mcq', q: "Some jobs are too \"_______\" for simple machines to do.", options: {A: "complicated", B: "minor", C: "easy", D: "light"}, answer: "A", explain: "Dịch: Một số công việc là quá phức tạp cho các máy móc đơn giản để làm. 'complicated': phức tạp." },
+            { id: 23, type: 'mcq', q: "The new robot is equipped with high-tech \"_______\" intelligence.", options: {A: "human", B: "artificial", C: "minor", D: "heavy"}, answer: "B", explain: "Dịch: Robot mới được trang bị trí tuệ nhân tạo công nghệ cao. 'artificial intelligence': trí tuệ nhân tạo." },
+            { id: 24, type: 'mcq', q: "The robot's daily \"_______\" is to clean the floors every morning.", options: {A: "emotion", B: "machine", C: "task", D: "planet"}, answer: "C", explain: "Dịch: Nhiệm vụ hàng ngày của robot là lau dọn sàn nhà vào mỗi buổi sáng. 'task': nhiệm vụ." },
+            { id: 25, type: 'mcq', q: "Doctor robots can help to \"_______\" sick people when there are not enough doctors.", options: {A: "recognize", B: "cure", C: "replace", D: "build"}, answer: "B", explain: "Dịch: Robot bác sĩ có thể giúp chữa trị cho người bệnh khi không có đủ bác sĩ. 'cure': chữa bệnh." },
+            { id: 26, type: 'mcq', q: "Space robots can stay on a \"_______\" for years to collect data.", options: {A: "planet", B: "ocean", C: "factory", D: "house"}, answer: "A", explain: "Dịch: Robot không gian có thể ở trên một hành tinh trong nhiều năm để thu thập dữ liệu. 'planet': hành tinh." },
+            { id: 27, type: 'mcq', q: "My parents bought a \"_______\" robot to help with everyday chores.", options: {A: "space", B: "home", C: "doctor", D: "worker"}, answer: "B", explain: "Dịch: Bố mẹ tôi đã mua một robot gia đình để giúp làm việc nhà hàng ngày. 'home robot': robot gia đình." },
+            { id: 28, type: 'mcq', q: "Even though robots are smart, they do not have \"_______\" like happiness or sadness.", options: {A: "emotions", B: "tasks", C: "information", D: "voices"}, answer: "A", explain: "Dịch: Mặc dù robot thông minh, chúng không có cảm xúc như sự hạnh phúc hay nỗi buồn. 'emotions': cảm xúc." },
+            { id: 29, type: 'mcq', q: "We can program the robot to \"_______\" the dirty clothes.", options: {A: "do the washing", B: "do the ironing", C: "water the plants", D: "cut the hedge"}, answer: "A", explain: "Dịch: Chúng ta có thể lập trình robot để giặt quần áo bẩn. 'do the washing': giặt giũ." },
+            { id: 30, type: 'mcq', q: "Before we go to sleep, the robot can \"_______\" for us.", options: {A: "build space stations", B: "explore the ocean", C: "make the bed", D: "repair the machine"}, answer: "C", explain: "Dịch: Trước khi chúng ta đi ngủ, robot có thể dọn dẹp giường cho chúng ta. 'make the bed': dọn giường." },
+            { id: 31, type: 'mcq', q: "This machine can \"_______\" humans in doing repetitive and boring jobs.", options: {A: "agree", B: "attend", C: "replace", D: "recognize"}, answer: "C", explain: "Dịch: Chiếc máy này có thể thay thế con người trong việc làm những công việc lặp đi lặp lại và nhàm chán. 'replace': thay thế." },
+            { id: 32, type: 'mcq', q: "Will robots play an important \"_______\" in our daily lives?", options: {A: "task", B: "role", C: "voice", D: "emotion"}, answer: "B", explain: "Dịch: Liệu robot sẽ đóng một vai trò quan trọng trong cuộc sống hàng ngày của chúng ta? 'play a role': đóng vai trò." },
+            { id: 33, type: 'mcq', q: "He doesn't think robots will take over the world. I \"_______\" him.", options: {A: "agree with", B: "transmit", C: "rescue", D: "navigate"}, answer: "A", explain: "Dịch: Anh ấy không nghĩ rằng robot sẽ chiếm lĩnh thế giới. Tôi đồng ý với anh ấy. 'agree with': đồng ý với." },
+            { id: 34, type: 'mcq', q: "They are building a robot to \"_______\" people in earthquakes and fires.", options: {A: "replace", B: "rescue", C: "recognize", D: "do"}, answer: "B", explain: "Dịch: Họ đang chế tạo một robot để cứu hộ mọi người trong động đất và hỏa hoạn. 'rescue': cứu hộ." },
+            { id: 35, type: 'mcq', q: "The submarine robot dives deep to \"_______\" the ocean floor.", options: {A: "explore", B: "make", C: "lift", D: "attend"}, answer: "A", explain: "Dịch: Robot tàu ngầm lặn sâu để khám phá đáy đại dương. 'explore': khám phá." },
+            { id: 36, type: 'mcq', q: "We use a lot of modern \"_______\" in our car factory.", options: {A: "humans", B: "planets", C: "machines", D: "emotions"}, answer: "C", explain: "Dịch: Chúng tôi sử dụng rất nhiều máy móc hiện đại trong nhà máy ô tô của chúng tôi. 'machines': máy móc." },
+            { id: 37, type: 'mcq', q: "My father uses a robot to \"_______\" the floor automatically every morning.", options: {A: "clean", B: "make", C: "do", D: "cut"}, answer: "A", explain: "Dịch: Bố tôi sử dụng một robot để lau sàn tự động mỗi buổi sáng. 'clean': lau dọn." },
+            { id: 38, type: 'mcq', q: "A robot cannot have a \"_______\" conversation like a real friend.", options: {A: "complicated", B: "minor", C: "heavy", D: "safe"}, answer: "A", explain: "Dịch: Một robot không thể có một cuộc trò chuyện phức tạp như một người bạn thực sự. 'complicated': phức tạp." },
+            { id: 39, type: 'mcq', q: "If the damage is \"_______\", the robot can fix it itself.", options: {A: "heavy", B: "dangerous", C: "minor", D: "human"}, answer: "C", explain: "Dịch: Nếu sự hư hỏng là nhỏ, robot có thể tự sửa nó. 'minor': nhỏ, không đáng kể." },
+            { id: 40, type: 'mcq', q: "They use satellite dishes to \"_______\" back to Earth.", options: {A: "guard the house", B: "transmit information", C: "understand feelings", D: "make coffee"}, answer: "B", explain: "Dịch: Họ sử dụng đĩa vệ tinh để truyền thông tin về Trái đất. 'transmit information': truyền thông tin." }
+        ];
+
+        const writingData = [];
+
+        const dragDropData = [];
+
+        const contexts = {};
+
+        window.onload = function() {
+            // Đợi người dùng nhập tên xong mới startTimer()
+            renderMCQ();
+            renderWriting();
+            renderDragDrop();
+        };
+
+        let studentName = "";
+        let studentClass = "";
+        const totalQuestionsCount = 40;
+        const GOOGLE_SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbyhFQW9GARDV-nxrNS5YVlw8cu_GtkoYhrdnofLoguV838T4IrdE2ScEy6CbYBhdlGm/exec";
+
+        function beginQuiz() {
+            const nameInput = document.getElementById('student-name-input').value.trim();
+            const classInput = document.getElementById('student-class-input').value.trim();
+            if (!nameInput || !classInput) {
+                alert("Vui lòng nhập đầy đủ họ tên và lớp của bạn để tiếp tục!");
+                return;
+            }
+            studentName = nameInput;
+            studentClass = classInput;
+            document.getElementById('name-modal').classList.add('hidden');
+            startTimer();
+        }
+
+        function startTimer() {
+            const timerEl = document.getElementById('timer');
+            const progressEl = document.getElementById('progress-bar');
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                const m = Math.floor(timeRemaining / 60);
+                const s = timeRemaining % 60;
+                timerEl.innerText = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+                progressEl.style.width = `${(timeRemaining / (20*60)) * 100}%`;
+                if (timeRemaining <= 0) processSubmission();
+            }, 1000);
+        }
+
+        function renderMCQ() {
+            const container = document.getElementById('mcq-section');
+            let currentContextId = null;
+
+            rawQuizData.forEach(q => {
+                if (q.groupTitle && !q.contextId) {
+                    const titleDiv = document.createElement('div');
+                    titleDiv.className = "text-lg font-bold text-green-800 mt-6 mb-3 pb-2 border-b-2 border-green-200 uppercase";
+                    titleDiv.innerHTML = q.groupTitle;
+                    container.appendChild(titleDiv);
+                }
+
+                if (q.contextId && q.contextId !== currentContextId) {
+                    currentContextId = q.contextId;
+                    const ctxDiv = document.createElement('div');
+                    ctxDiv.className = "mb-8 bg-gray-50 p-6 rounded-2xl border border-dashed border-green-200 shadow-sm";
+                    ctxDiv.innerHTML = `
+                        <h4 class="font-bold text-green-700 italic mb-4 flex items-center">
+                            <i class="fas fa-file-alt mr-2 text-green-500"></i>${contexts[q.contextId].title}
+                        </h4>
+                        <div class="font-reading text-justify leading-relaxed text-gray-800">
+                            &emsp;&emsp;${contexts[q.contextId].content}
+                        </div>
+                    `;
+                    container.appendChild(ctxDiv);
+                }
+
+                const card = document.createElement('div');
+                card.id = `q-${q.id}`;
+                card.className = "bg-white rounded-xl p-4 mb-4 border border-gray-100 hover:shadow-sm transition-shadow";
+                card.innerHTML = `
+                    <div class="flex items-start mb-3">
+                        <span class="q-badge mr-3 mt-0.5 shadow-sm">Q${q.id}</span> 
+                        <p class="font-bold text-gray-800 text-[1.05rem] pt-0.5 leading-relaxed">${q.q}</p>
+                    </div>
+                    <div id="options-${q.id}" class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-2 ml-2 sm:ml-12">
+                        ${Object.entries(q.options).map(([key, val]) => `
+                            <label class="flex items-center p-3.5 border border-gray-200 rounded-xl cursor-pointer hover:bg-green-50 hover:border-green-300 transition group bg-white relative" data-key="${key}">
+                                <input type="radio" name="q${q.id}" value="${key}" class="form-radio text-green-600 mr-3 w-4 h-4" onchange="trackProgress()">
+                                <span class="text-gray-700 select-none flex-1"><span class="font-black text-gray-400 mr-2 group-hover:text-green-700">${key}.</span> ${val}</span>
+                                <div class="feedback-icon hidden ml-2"></div>
+                            </label>
+                        `).join('')}
+                    </div>
+                    <div class="explanation-container hidden ml-2 sm:ml-12"></div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderWriting() {
+            const part1 = document.getElementById('gap-fill-1');
+            const part2 = document.getElementById('gap-fill-2');
+            writingData.forEach(q => {
+                const div = document.createElement('div');
+                div.id = `q-${q.id}`;
+                if (q.type === 'gap-verb') {
+                    div.innerHTML = `
+                        <div class="flex items-baseline space-x-3 text-lg leading-relaxed">
+                            <span class="q-badge flex-shrink-0">Q${q.id}</span>
+                            <div class="flex items-baseline flex-wrap">
+                                <span class="mr-2 font-medium text-gray-800">${q.prefix}</span>
+                                <span class="text-green-600 font-bold italic mr-3">(${q.verb})</span>
+                                <div class="inline-block relative w-52 mr-2 my-1">
+                                    <input type="text" name="q${q.id}" class="writing-input shadow-sm" placeholder="Gõ câu trả lời..." oninput="trackProgress()">
+                                </div>
+                                <span class="font-medium text-gray-800">${q.suffix}</span>
+                            </div>
+                        </div>
+                        <div class="correct-answer-display hidden text-green-600 font-bold text-sm mt-3 ml-16 flex items-center"></div>
+                        <div class="explanation-container hidden ml-16"></div>
+                    `;
+                    part1.appendChild(div);
+                } else {
+                    div.innerHTML = `
+                        <div class="flex flex-col space-y-4">
+                            <div class="flex items-start">
+                                <span class="q-badge mr-4 flex-shrink-0 shadow-sm">Q${q.id}</span>
+                                <div class="flex-1">
+                                    <p class="text-lg font-bold text-gray-800 mb-4">${q.q}</p>
+                                    <div class="flex flex-col sm:flex-row sm:items-center bg-gray-50 p-5 rounded-2xl border border-gray-100 shadow-inner">
+                                        <div class="flex items-center mb-3 sm:mb-0 mr-4">
+                                            <i class="fas fa-arrow-right text-green-500 mr-2"></i>
+                                            <span class="font-black text-gray-900 whitespace-nowrap">${q.prompt}</span>
+                                        </div>
+                                        <input type="text" name="q${q.id}" class="writing-input bg-white shadow-sm" placeholder="Hoàn thành câu..." oninput="trackProgress()">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="correct-answer-display hidden text-green-600 font-bold text-sm mt-3 ml-16 flex items-center"></div>
+                        <div class="explanation-container hidden ml-16"></div>
+                    `;
+                    part2.appendChild(div);
+                }
+            });
+        }
+
+        function renderDragDrop() {
+            const container = document.getElementById('drag-drop-container');
+            dragDropData.forEach(q => {
+                const div = document.createElement('div');
+                div.id = `q-${q.id}`;
+                div.className = "bg-gray-50 p-5 rounded-2xl border border-gray-100 shadow-sm";
+                div.innerHTML = `
+                    <div class="flex items-start mb-2">
+                        <span class="q-badge mr-4 flex-shrink-0 shadow-sm mt-1">Q${q.id}</span>
+                        <div class="flex-1 w-full overflow-hidden">
+                            <p class="text-sm text-gray-500 font-bold mb-3 italic"><i class="fas fa-hand-pointer mr-1"></i> Kéo thả các từ bên dưới để tạo thành câu hoàn chỉnh:</p>
+                            <div id="sortable-${q.id}" class="sortable-list flex flex-wrap gap-2.5 min-h-[55px] p-3 bg-white rounded-xl border-2 border-dashed border-green-300" data-interacted="false">
+                                ${q.words.map(w => `<div class="cursor-grab bg-green-100 text-green-800 px-4 py-2.5 rounded-lg font-bold shadow-sm hover:bg-green-200 hover:scale-[1.02] active:scale-95 transition-all select-none word-item flex items-center justify-center text-center leading-tight touch-manipulation">${w}</div>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="correct-answer-display hidden text-green-600 font-bold text-sm mt-4 ml-16 items-center"></div>
+                    <div class="explanation-container hidden ml-16"></div>
+                `;
+                container.appendChild(div);
+
+                new Sortable(document.getElementById(`sortable-${q.id}`), {
+                    animation: 150,
+                    ghostClass: 'opacity-40',
+                    onEnd: function (evt) {
+                        evt.to.setAttribute('data-interacted', 'true');
+                        trackProgress();
+                    }
+                });
+            });
+        }
+
+        function trackProgress() {
+            let count = 0;
+            count += document.querySelectorAll('input[type="radio"]:checked').length;
+            document.querySelectorAll('input[type="text"]:not(#student-name-input):not(#student-class-input)').forEach(i => { if(i.value.trim() !== '') count++; });
+            document.querySelectorAll('.sortable-list[data-interacted="true"]').forEach(() => count++);
+            document.getElementById('completed-count').innerText = count;
+        }
+
+        function confirmSubmit() { document.getElementById('confirm-modal').classList.remove('hidden'); }
+        function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+        function processSubmission() {
+            closeModal('confirm-modal');
+            clearInterval(timerInterval);
+            let correctCount = 0;
+
+            rawQuizData.forEach(q => {
+                const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
+                if (selected && selected.value === q.answer) correctCount++;
+            });
+
+            writingData.forEach(q => {
+                const input = document.querySelector(`input[name="q${q.id}"]`);
+                const val = input.value.trim().toLowerCase().replace(/\.$/, "");
+                if (q.answers.some(a => val === a.toLowerCase().replace(/\.$/, ""))) correctCount++;
+            });
+
+            dragDropData.forEach(q => {
+                const list = document.getElementById(`sortable-${q.id}`);
+                const items = Array.from(list.querySelectorAll('.word-item')).map(item => item.innerText.trim());
+                const userAns = items.join(" ");
+                if (userAns === q.answer) correctCount++;
+            });
+
+            document.getElementById('result-score').innerText = ((correctCount/totalQuestionsCount)*10).toFixed(2);
+            document.getElementById('result-correct').innerText = `${correctCount}/${totalQuestionsCount}`;
+            document.getElementById('result-modal').classList.remove('hidden');
+            document.getElementById('btn-submit').style.display = 'none';
+
+            // Gửi dữ liệu lên Google Sheets
+            const resultsData = {
+                name: studentName,
+                className: studentClass,
+                examName: "L6 U12 từ vựng nâng cao",
+                score: ((correctCount/totalQuestionsCount)*10).toFixed(2),
+                correct: `${correctCount}/${totalQuestionsCount}`,
+                answers: {}
+            };
+
+            rawQuizData.forEach(q => {
+                const selected = document.querySelector(`input[name="q${q.id}"]:checked`);
+                resultsData.answers[`Q${q.id}`] = (selected && selected.value === q.answer) ? "Đúng" : "Sai";
+            });
+
+            writingData.forEach(q => {
+                const input = document.querySelector(`input[name="q${q.id}"]`);
+                const val = input.value.trim().toLowerCase().replace(/\.$/, "");
+                const isCorrect = q.answers.some(a => val === a.toLowerCase().replace(/\.$/, ""));
+                resultsData.answers[`Q${q.id}`] = isCorrect ? "Đúng" : "Sai";
+            });
+
+            dragDropData.forEach(q => {
+                const list = document.getElementById(`sortable-${q.id}`);
+                const items = Array.from(list.querySelectorAll('.word-item')).map(item => item.innerText.trim());
+                const userAns = items.join(" ");
+                resultsData.answers[`Q${q.id}`] = (userAns === q.answer) ? "Đúng" : "Sai";
+            });
+
+            if (GOOGLE_SHEETS_API_URL !== "YOUR_WEB_APP_URL_HERE" && GOOGLE_SHEETS_API_URL.startsWith("http")) {
+                fetch(GOOGLE_SHEETS_API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(resultsData)
+                }).then(res => console.log("Đã gửi kết quả thành công"))
+                  .catch(err => console.error("Lỗi gửi dữ liệu:", err));
+            } else {
+                console.warn("Chưa cấu hình GOOGLE_SHEETS_API_URL hợp lệ, kết quả không được gửi đi.");
+            }
+        }
+
+        function showCorrections() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            rawQuizData.forEach(q => {
+                const container = document.getElementById(`q-${q.id}`);
+                const optionsDiv = document.getElementById(`options-${q.id}`);
+                if (!optionsDiv) return;
+
+                const selected = container.querySelector(`input[name="q${q.id}"]:checked`);
+                const userVal = selected ? selected.value : null;
+
+                optionsDiv.querySelectorAll('label').forEach(label => {
+                    const key = label.getAttribute('data-key');
+                    const icon = label.querySelector('.feedback-icon');
+                    label.classList.add('pointer-events-none');
+                    if (key === q.answer) {
+                        label.classList.add('option-correct');
+                        icon.innerHTML = '<i class="fas fa-check text-green-600"></i>';
+                        icon.classList.remove('hidden');
+                    } else if (userVal === key) {
+                        label.classList.add('option-wrong');
+                        icon.innerHTML = '<i class="fas fa-times text-red-600"></i>';
+                        icon.classList.remove('hidden');
+                    }
+                });
+
+                const expCont = container.querySelector('.explanation-container');
+                expCont.innerHTML = `<div class="explanation-box shadow-sm"><b>💡 Giải thích:</b> ${q.explain}</div>`;
+                expCont.classList.remove('hidden');
+            });
+
+            dragDropData.forEach(q => {
+                const container = document.getElementById(`q-${q.id}`);
+                const list = document.getElementById(`sortable-${q.id}`);
+                const items = Array.from(list.querySelectorAll('.word-item')).map(item => item.innerText.trim());
+                const userAns = items.join(" ");
+                const isCorrect = userAns === q.answer;
+                
+                // Vô hiệu hóa kéo thả sau khi nộp
+                Sortable.get(list).options.disabled = true;
+                Array.from(list.children).forEach(el => el.classList.remove('cursor-grab', 'hover:bg-green-200', 'hover:scale-[1.02]', 'active:scale-95'));
+                
+                if (isCorrect) {
+                    list.classList.replace('border-dashed', 'border-solid');
+                    list.classList.replace('border-green-300', 'border-green-500');
+                    list.classList.add('bg-green-50');
+                } else {
+                    list.classList.replace('border-dashed', 'border-solid');
+                    list.classList.replace('border-green-300', 'border-red-400');
+                    list.classList.add('bg-red-50');
+                    const ansDiv = container.querySelector('.correct-answer-display');
+                    ansDiv.innerHTML = `<i class="fas fa-check-circle mr-2 text-green-600"></i> Đáp án đúng: <span class="ml-1 text-gray-800">${q.answer}</span>`;
+                    ansDiv.classList.remove('hidden');
+                    ansDiv.classList.add('flex');
+                }
+
+                const expCont = container.querySelector('.explanation-container');
+                expCont.innerHTML = `<div class="explanation-box shadow-sm"><b>💡 Giải thích:</b> ${q.explain}</div>`;
+                expCont.classList.remove('hidden');
+            });
+        }
+    </script>
+</body>
+</html>
