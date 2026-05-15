@@ -1760,16 +1760,19 @@
 }
 
 /* =========================================================
-   CONTENT
+   COURSE CONTENT LAYOUT FIX
 ========================================================== */
 
 .course-content{
   padding:34px;
+
+  display:flex;
+  flex-direction:column;
+
+  height:100%;
 }
 
-/* =========================
-   LEVEL
-========================== */
+/* LEVEL */
 
 .course-level{
   display:inline-block;
@@ -1782,11 +1785,11 @@
   letter-spacing:1px;
 
   color:#22c55e;
+
+  min-height:20px;
 }
 
-/* =========================
-   TITLE
-========================== */
+/* TITLE */
 
 .course-content h3{
   font-size:38px;
@@ -1796,12 +1799,12 @@
 
   color:#0f172a;
 
-  margin-bottom:20px;
+  margin-bottom:18px;
+
+  min-height:92px; /* QUAN TRỌNG */
 }
 
-/* =========================
-   FEATURE
-========================== */
+/* FEATURE */
 
 .course-feature{
   display:flex;
@@ -1809,6 +1812,8 @@
   gap:10px;
 
   margin-bottom:18px;
+
+  min-height:72px; /* QUAN TRỌNG */
 }
 
 .course-feature span{
@@ -1824,9 +1829,7 @@
   font-weight:600;
 }
 
-/* =========================
-   DESCRIPTION
-========================== */
+/* DESCRIPTION */
 
 .course-desc{
   font-size:16px;
@@ -1835,11 +1838,11 @@
   color:#6b7280;
 
   margin-bottom:28px;
+
+  min-height:150px; /* QUAN TRỌNG */
 }
 
-/* =========================================================
-   POINTS
-========================================================== */
+/* POINTS */
 
 .course-points{
   display:flex;
@@ -1852,62 +1855,14 @@
   1px solid rgba(0,0,0,.06);
 
   margin-bottom:34px;
+
+  min-height:190px; /* QUAN TRỌNG */
 }
 
-/* =========================
-   ITEM
-========================== */
-
-.course-point{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-}
-
-.course-point svg{
-  width:20px;
-  height:20px;
-
-  flex-shrink:0;
-
-  color:#22c55e;
-
-  margin-top:2px;
-}
-
-.course-point span{
-  font-size:15px;
-  line-height:170%;
-
-  color:#374151;
-
-  font-weight:500;
-}
-
-/* =========================================================
-   LINK
-========================================================== */
+/* LINK */
 
 .course-link{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-
-  font-size:16px;
-  font-weight:700;
-
-  color:#16a34a;
-
-  transition:.3s;
-}
-
-.course-link svg{
-  width:18px;
-  height:18px;
-}
-
-.course-link:hover{
-  transform:translateX(5px);
+  margin-top:auto; /* MAGIC */
 }
 
 /* =========================================================
@@ -2379,17 +2334,17 @@
   </span>
 
   <span class="gradient-text">
-    hiện đại
+    hiện đại,
   </span>
 
   <br>
 
   <span class="gradient-text">
-    đồng hành
+    đồng hành sát sao 
   </span>
 
   <span class="dark-text">
-    sát sao cùng học sinh
+    cùng học sinh
   </span>
 
 </h2>
