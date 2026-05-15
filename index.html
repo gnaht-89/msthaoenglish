@@ -1963,6 +1963,144 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================================================
+   FEEDBACK SECTION (DARK GREEN THEME)
+========================================================== */
+
+.feedback-section {
+  background-color: #041d10; /* Xanh lá siêu đậm, đồng bộ với dark-text của thương hiệu */
+  padding: 100px 0;
+  color: #ffffff;
+}
+
+/* =========================
+   HEADING
+========================== */
+.feedback-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.feedback-label {
+  display: inline-block;
+  color: #f59e0b; /* Màu cam vàng nổi bật trên nền xanh tối */
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.feedback-heading h2 {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* =========================
+   GRID & CARDS
+========================== */
+.feedback-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.feedback-card {
+  background-color: #0a2f17; /* Màu xanh lá đậm (sáng hơn nền một chút) */
+  border: 1px solid rgba(34, 197, 94, 0.15); /* Viền xanh lá mờ tinh tế */
+  padding: 40px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  
+  /* Animation xuất hiện */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.6s ease, opacity 0.6s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.feedback-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  border-color: rgba(34, 197, 94, 0.4); /* Sáng viền lên khi di chuột vào */
+}
+
+/* =========================
+   STARS & QUOTES
+========================== */
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.stars svg {
+  width: 20px;
+  height: 20px;
+  color: #f59e0b; /* Giữ màu vàng cam cho ngôi sao để tương phản tốt */
+}
+
+.feedback-quote {
+  font-size: 16px;
+  line-height: 170%;
+  color: #cbd5e1; /* Xám nhạt, dễ đọc trên nền tối */
+  margin-bottom: 30px;
+  flex: 1;
+}
+
+/* =========================
+   USER INFO
+========================== */
+.feedback-user {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.feedback-user img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(34, 197, 94, 0.5); /* Thêm viền avatar nhẹ nhàng */
+}
+
+.user-info h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.user-info p {
+  font-size: 13px;
+  color: #a7f3d0; /* Chữ phụ đề có ánh xanh ngọc nhẹ */
+}
+
+/* =========================
+   RESPONSIVE
+========================== */
+@media(max-width: 1024px) {
+  .feedback-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media(max-width: 768px) {
+  .feedback-heading h2 {
+    font-size: 32px;
+  }
+  .feedback-grid {
+    grid-template-columns: 1fr;
+  }
+}
     
   </style>
 
@@ -2845,6 +2983,80 @@
   </div>
 </section>
 
+  <section class="feedback-section">
+  <div class="container">
+
+    <div class="feedback-heading">
+      <span class="feedback-label">PHỤ HUYNH & HỌC VIÊN NÓI GÌ</span>
+      <h2>Niềm tin từ hàng nghìn gia đình</h2>
+    </div>
+
+    <div class="feedback-grid">
+
+      <div class="feedback-card">
+        <div class="stars">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+        </div>
+        <p class="feedback-quote">
+          “Bé nhà mình từ nhút nhát giờ đã tự tin hát tiếng Anh líu lo và dạn dĩ giao tiếp. Các cô ở trung tâm rất kiên nhẫn và phương pháp học qua trò chơi cực kỳ hiệu quả.”
+        </p>
+        <div class="feedback-user">
+          <img src="assets/avatar-1.jpg" alt="Chị Thu Trang">
+          <div class="user-info">
+            <h4>Chị Thu Trang</h4>
+            <p>Phụ huynh bé Dâu (Kids English)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feedback-card">
+        <div class="stars">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+        </div>
+        <p class="feedback-quote">
+          “Từ ngày học ở trung tâm, con không còn sợ môn tiếng Anh trên lớp nữa. Con nắm chắc ngữ pháp, phát âm chuẩn hơn và kết quả bài thi luôn đạt điểm khá giỏi.”
+        </p>
+        <div class="feedback-user">
+          <img src="assets/avatar-2.jpg" alt="Anh Minh Tuấn">
+          <div class="user-info">
+            <h4>Anh Minh Tuấn</h4>
+            <p>Phụ huynh bé Hoàng (Teen English)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="feedback-card">
+        <div class="stars">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd"/></svg>
+        </div>
+        <p class="feedback-quote">
+          “Lộ trình ôn thi rất rõ ràng và bám sát cấu trúc đề. Nhờ sự đồng hành và báo cáo tiến độ chi tiết của thầy cô, con đã xuất sắc đỗ nguyện vọng 1 vào lớp 10.”
+        </p>
+        <div class="feedback-user">
+          <img src="assets/avatar-3.jpg" alt="Chị Mai Lan">
+          <div class="user-info">
+            <h4>Chị Mai Lan</h4>
+            <p>Phụ huynh bé Hà Phương (Luyện thi)</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <script>
 
 const whyCards = document.querySelectorAll('.why-card');
@@ -2926,6 +3138,24 @@ courseCards.forEach(card=>{
 
   teacherCards.forEach(card => {
     teacherObserver.observe(card);
+  });
+</script>
+
+  <script>
+  // Thêm logic cho thẻ Feedback
+  const feedbackCards = document.querySelectorAll('.feedback-card');
+  const feedbackObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if(entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('show');
+        }, index * 150);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  feedbackCards.forEach(card => {
+    feedbackObserver.observe(card);
   });
 </script>
   
