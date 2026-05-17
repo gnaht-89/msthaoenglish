@@ -2282,6 +2282,514 @@
     grid-row: span 1; /* Hủy chiếm 2 dòng trên mobile để không bị quá dài */
   }
 }
+
+    /* =========================================================
+   FAQ SECTION
+========================================================== */
+
+.faq-section {
+  padding: 100px 0;
+  background-color: #f8faf9; /* Nền xám xanh cực nhạt, đồng bộ với Teachers Section */
+}
+
+/* Giới hạn chiều rộng để dòng chữ không bị quá dài, dễ đọc hơn */
+.faq-container {
+  max-width: 860px;
+}
+
+/* =========================
+   HEADING
+========================== */
+.faq-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.faq-heading h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -1px;
+}
+
+/* =========================
+   FAQ LIST & ITEMS
+========================== */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.faq-item:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   QUESTION (BUTTON)
+========================== */
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 24px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #16a34a; /* Đổi màu xanh lá khi hover */
+}
+
+/* Biểu tượng mũi tên */
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  color: #22c55e;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =========================
+   ANSWER
+========================== */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 30px;
+  opacity: 0;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.3s ease;
+}
+
+.faq-answer p {
+  font-size: 16px;
+  line-height: 180%;
+  color: #4b5563;
+  margin: 0; /* Reset margin mặc định của thẻ p */
+  border-top: 1px dashed rgba(0,0,0,0.08); /* Đường gạch mờ ngăn cách */
+  padding-top: 20px;
+}
+
+/* =========================
+   ACTIVE STATE (KHI MỞ)
+========================== */
+/* Xoay mũi tên lên */
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+
+/* Đổi màu chữ câu hỏi khi đang mở */
+.faq-item.active .faq-question {
+  color: #16a34a;
+}
+
+/* Hiển thị nội dung câu trả lời */
+.faq-item.active .faq-answer {
+  max-height: 500px; /* Số lớn để đảm bảo chứa đủ text */
+  padding-bottom: 26px;
+  opacity: 1;
+}
+
+/* =========================
+   RESPONSIVE
+========================== */
+@media(max-width: 768px) {
+  .faq-heading h2 {
+    font-size: 32px;
+  }
+  .faq-question {
+    padding: 20px 24px;
+    font-size: 16px;
+  }
+  .faq-answer {
+    padding: 0 24px;
+  }
+}
+
+    /* =========================================================
+   CTA & FORM SECTION
+========================================================== */
+.cta-section {
+  padding: 100px 0;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* =========================
+   LEFT: CONTENT
+========================== */
+.badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: #dcfce7;
+  color: #16a34a;
+  font-size: 13px;
+  font-weight: 800;
+  border-radius: 999px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.cta-left h2 {
+  font-size: 42px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 120%;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.cta-desc {
+  font-size: 17px;
+  color: #4b5563;
+  line-height: 180%;
+  margin-bottom: 30px;
+}
+
+.benefits-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.benefits-list svg {
+  width: 24px;
+  height: 24px;
+  color: #22c55e;
+  background: #dcfce7;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+/* =========================
+   RIGHT: FORM
+========================== */
+.register-form {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.03);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.form-group label span {
+  color: #ef4444; /* Dấu * màu đỏ */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  color: #111827;
+  background: #f9fafb;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #22c55e;
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.1);
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #0b5d1e, #22c55e);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(34, 197, 94, 0.25);
+}
+
+.privacy-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #9ca3af;
+}
+.privacy-notice svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Thành công */
+.success-message {
+  text-align: center;
+  padding: 60px 20px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+}
+.success-message svg {
+  width: 60px;
+  height: 60px;
+  color: #22c55e;
+  margin-bottom: 20px;
+}
+.success-message h3 {
+  font-size: 24px;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+/* Loader */
+.loader {
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* RESPONSIVE */
+@media(max-width: 900px) {
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+@media(max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .register-form {
+    padding: 24px;
+  }
+}
+
+/* =========================================================
+   FOOTER SECTION
+========================================================== */
+
+.footer {
+  background-color: #021208; /* Màu xanh lá gần như đen, tạo đáy sâu thẳm */
+  color: #cbd5e1;
+  padding-top: 80px;
+}
+
+.footer-top {
+  display: grid;
+  /* Chia 4 cột với tỉ lệ: Cột Brand to nhất, các cột kia nhỏ hơn */
+  grid-template-columns: 2fr 1fr 1fr 1.5fr;
+  gap: 40px;
+  padding-bottom: 60px;
+}
+
+/* =========================
+   COL 1: BRAND
+========================== */
+.footer-logo {
+  height: 48px;
+  width: auto;
+  margin-bottom: 24px;
+  /* Filter giúp biến logo đen/màu thành màu trắng. Bỏ đi nếu logo của bạn đã có màu sáng */
+  filter: brightness(0) invert(1); 
+}
+
+.brand-col p {
+  line-height: 1.8;
+  font-size: 15px;
+  margin-bottom: 30px;
+  color: #94a3b8;
+  padding-right: 20px;
+}
+
+.social-links {
+  display: flex;
+  gap: 12px;
+}
+
+.social-links a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #0a2f17; /* Màu xanh lá tối làm nền */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.social-links a svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-links a:hover {
+  background: #22c55e;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+}
+
+/* =========================
+   COLS: LINKS & CONTACT
+========================== */
+.footer-col h4 {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-links a:hover {
+  color: #22c55e;
+  transform: translateX(4px); /* Hover thì link dịch sang phải 1 xíu */
+}
+
+/* Cột liên hệ có chứa Icon */
+.contact-col li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 15px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.contact-col svg {
+  width: 20px;
+  height: 20px;
+  color: #22c55e;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* =========================
+   FOOTER BOTTOM
+========================== */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 24px 0;
+}
+
+.footer-bottom p {
+  text-align: left;
+  font-size: 14px;
+  color: #64748b;
+}
+
+/* =========================
+   RESPONSIVE
+========================== */
+@media(max-width: 1024px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+}
+
+@media(max-width: 600px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .brand-col p {
+    padding-right: 0;
+  }
+  .footer-bottom p {
+    text-align: center;
+  }
+}
     
   </style>
 
@@ -3311,6 +3819,245 @@
   </div>
 </section>
 
+  <section class="faq-section">
+  <div class="container faq-container">
+
+    <div class="faq-heading">
+      <span class="section-label">CÂU HỎI THƯỜNG GẶP</span>
+      <h2>Phụ huynh & học viên thường hỏi</h2>
+    </div>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Trung tâm có lớp học thử miễn phí không?
+          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Có, Ms Thao English Center luôn tổ chức các buổi học thử miễn phí. Buổi học này giúp giáo viên đánh giá chính xác năng lực hiện tại của học viên, đồng thời để các bạn làm quen với phương pháp giảng dạy và môi trường tại trung tâm trước khi đăng ký chính thức.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Học phí mỗi khóa khoảng bao nhiêu?
+          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Học phí sẽ linh hoạt tùy thuộc vào từng độ tuổi, trình độ đầu vào và mục tiêu khóa học (Kids, Teens hay Luyện thi). Phụ huynh vui lòng để lại thông tin hoặc gọi vào Hotline, trung tâm sẽ tư vấn chi tiết lộ trình kèm mức học phí ưu đãi nhất.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Sĩ số lớp tối đa bao nhiêu?
+          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Để đảm bảo chất lượng giảng dạy và giáo viên có thể theo sát từng bạn, sĩ số tại Ms Thao được giới hạn nghiêm ngặt ở mức <strong>8 - 14 học viên/lớp</strong> tùy chương trình. Việc học nhóm nhỏ giúp tăng tối đa thời gian tương tác và thực hành tiếng Anh của mỗi học sinh.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Giáo viên có phải là người bản ngữ không?
+          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Đội ngũ giảng viên là sự kết hợp chặt chẽ giữa Giáo viên Việt Nam (chuyên môn cao, chứng chỉ IELTS 7.5+ / TESOL, giúp giải thích cặn kẽ ngữ pháp) và Giáo viên Bản ngữ (hỗ trợ luyện phát âm chuẩn, phản xạ giao tiếp tự nhiên). Ngoài ra mỗi lớp luôn có Trợ giảng đồng hành.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">
+          Phụ huynh theo dõi tiến độ học của con như thế nào?
+          <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+        <div class="faq-answer">
+          <p>Trung tâm cập nhật tình hình học tập thường xuyên qua nhóm Zalo riêng của từng lớp. Cuối mỗi tháng hoặc mỗi chặng, giáo viên sẽ gửi <strong>Báo cáo học tập chi tiết (Report Card)</strong> kèm nhận xét điểm mạnh, điểm yếu và phương hướng cải thiện để phụ huynh nắm bắt sát sao.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <section class="cta-section" id="register">
+  <div class="container">
+    <div class="cta-grid">
+
+      <div class="cta-left">
+        <span class="badge">🎁 ĐĂNG KÝ NGAY</span>
+        <h2>Trải nghiệm học thử & Nhận tài liệu miễn phí cùng <br><span class="gradient-text">Ms Thao</span></h2>
+        <p class="cta-desc">
+          Để lại thông tin để cố vấn học tập tư vấn lộ trình phù hợp, sắp xếp buổi học thử hoặc gửi bộ tài liệu độc quyền cho bé trong vòng 24h.
+        </p>
+        
+        <ul class="benefits-list">
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            1 buổi học thử miễn phí đánh giá năng lực
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Bộ tài liệu tiếng Anh theo độ tuổi
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Tư vấn lộ trình cá nhân hóa 1-1
+          </li>
+        </ul>
+      </div>
+
+      <div class="cta-right">
+        <form class="register-form" id="sheetdb-form">
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Họ tên học viên <span>*</span></label>
+              <input type="text" name="data[Name]" placeholder="VD: Nguyễn An" required>
+            </div>
+            <div class="form-group">
+              <label>Tuổi <span>*</span></label>
+              <input type="number" name="data[Age]" placeholder="VD: 12" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>SĐT phụ huynh <span>*</span></label>
+            <input type="tel" name="data[Phone]" placeholder="VD: 0901234567" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Nhu cầu của bạn <span>*</span></label>
+              <select name="data[Purpose]" required>
+                <option value="" disabled selected>-- Chọn --</option>
+                <option value="Học thử">Đăng ký học thử</option>
+                <option value="Nhận tài liệu">Nhận tài liệu miễn phí</option>
+                <option value="Cả hai">Cả hai</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Khóa học quan tâm</label>
+              <select name="data[Course]">
+                <option value="" disabled selected>-- Chọn --</option>
+                <option value="Kids (5-10)">Kids English (5-10 tuổi)</option>
+                <option value="Teen (11-15)">Teen English (11-15 tuổi)</option>
+                <option value="Luyện thi">Luyện thi chuyển cấp</option>
+                <option value="Chưa rõ">Cần tư vấn thêm</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Lời nhắn (Tuỳ chọn)</label>
+            <textarea name="data[Message]" rows="3" placeholder="Chia sẻ thêm với Ms Thao..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">
+            <span class="btn-text">Hoàn tất đăng ký</span>
+            <div class="loader" id="formLoader" style="display: none;"></div>
+          </button>
+          
+          <p class="privacy-notice">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+            Ms Thao cam kết bảo mật thông tin của bạn.
+          </p>
+        </form>
+        
+        <div id="successMessage" class="success-message" style="display: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <h3>Đăng ký thành công!</h3>
+          <p>Cảm ơn bạn. Đội ngũ Ms Thao sẽ liên hệ lại trong thời gian sớm nhất.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      
+      <div class="footer-col brand-col">
+        <img src="logo.png" alt="Ms Thao English" class="footer-logo">
+        <p>Trung tâm tiếng Anh hiện đại — đồng hành cùng học viên Việt Nam phát triển phản xạ tiếng Anh tự nhiên và tự tin.</p>
+        
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.015 3.015 0 00-2.122 2.136C0 8.07 0 12 0 12s0 3.93.501 5.814a3.016 3.016 0 002.122 2.136c1.871.55 9.377.55 9.377.55s7.505 0 9.377-.55a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Khám phá</h4>
+        <ul class="footer-links">
+          <li><a href="#">Trang chủ</a></li>
+          <li><a href="#">Khóa học</a></li>
+          <li><a href="#">Đội ngũ giáo viên</a></li>
+          <li><a href="#">Thư viện hình ảnh</a></li>
+          <li><a href="#">Về Ms Thao English</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Khóa học</h4>
+        <ul class="footer-links">
+          <li><a href="#">Kids English (5–10 tuổi)</a></li>
+          <li><a href="#">Teen English (11–15 tuổi)</a></li>
+          <li><a href="#">Luyện thi vào 6 & 10</a></li>
+          <li><a href="#">Tiếng Anh giao tiếp</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h4>Liên hệ</h4>
+        <ul>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.242-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <span>Đại lý Số 1, Đường XYZ, Quận ABC, TP.HCM</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            <span>039 664 1532</span>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span>hello@msthao.edu.vn</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>&copy; 2026 Ms Thao English. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
 <script>
 
 const whyCards = document.querySelectorAll('.why-card');
@@ -3428,6 +4175,65 @@ courseCards.forEach(card=>{
 
   galleryItems.forEach(item => {
     galleryObserver.observe(item);
+  });
+</script>
+
+  <script>
+  // Xử lý logic đóng/mở FAQ
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    
+    questionBtn.addEventListener('click', () => {
+      // Tùy chọn: Nếu muốn chỉ mở 1 thẻ tại 1 thời điểm, bỏ comment đoạn code dưới đây:
+      /*
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('active');
+        }
+      });
+      */
+      
+      // Bật/tắt class active cho thẻ hiện tại
+      item.classList.toggle('active');
+    });
+  });
+</script>
+
+  <script>
+  const form = document.getElementById('sheetdb-form');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = document.querySelector('.btn-text');
+  const loader = document.getElementById('formLoader');
+  const successMessage = document.getElementById('successMessage');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault(); // Ngăn trang bị reload
+
+    // Đổi trạng thái nút bấm thành đang tải
+    btnText.style.display = 'none';
+    loader.style.display = 'block';
+    submitBtn.disabled = true;
+
+    // URL Google Apps Script của bạn
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxOBI1Nr2aPWIdbtffJmkdZIQ-Z2aRLpMCE5Si74DYhPMDNwOQ4jOBXDB99i-aFE8rU/exec';
+
+    fetch(scriptURL, { 
+      method: 'POST', 
+      body: new FormData(form) 
+    })
+    .then(response => {
+      // Ẩn form, hiện thông báo thành công
+      form.style.display = 'none';
+      successMessage.style.display = 'block';
+    })
+    .catch(error => {
+      alert('Có lỗi xảy ra, vui lòng thử lại sau!');
+      btnText.style.display = 'block';
+      loader.style.display = 'none';
+      submitBtn.disabled = false;
+    });
   });
 </script>
   
